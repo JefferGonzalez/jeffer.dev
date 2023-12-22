@@ -1,5 +1,15 @@
 ---
+import GridContainer from '@components/GridContainer.astro'
+import GridItem from '@components/GridItem.astro'
 import Layout from '@layouts/Layout.astro'
 ---
 
-<Layout title="@JefferGonzález" />
+<Layout title="@JefferGonzález">
+  <GridContainer className="grid-flow-row-dense">
+    <GridItem className="row-span-2 col-span-2" />
+    <GridItem />
+    <GridItem />
+    <GridItem className="col-span-3" />
+    <GridItem className="col-span-3" />
+  </GridContainer>
+</Layout>
