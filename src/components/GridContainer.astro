@@ -6,6 +6,188 @@ interface Props {
 const { className } = Astro.props
 ---
 
-<div class:list={['m-4', 'grid', 'grid-cols-3', 'gap-4', className]}>
+<div
+  class:list={[
+    'm-4',
+    'grid',
+    'grid-cols-3',
+    'gap-4',
+    'glow-container',
+    className
+  ]}
+>
   <slot />
 </div>
+
+<script is:inline>
+  const CONTAINER = document.querySelector('.glow-container')
+  const ITEMS = document.querySelectorAll('.glow-item')
+
+  const CONFIG = {
+    proximity: 40,
+    spread: 80,
+    blur: 40,
+    opacity: 0
+  }
+
+  const UPDATE = (event) => {
+    // get the angle based on the center point of the card and pointer position
+    for (const ITEM of ITEMS) {
+      // Check the card against the proximity and then start updating
+      const ITEM_BOUNDS = ITEM.getBoundingClientRect()
+      // Get distance between pointer and outerbounds of card
+      if (
+        event?.x > ITEM_BOUNDS.left - CONFIG.proximity &&
+        event?.x < ITEM_BOUNDS.left + ITEM_BOUNDS.width + CONFIG.proximity &&
+        event?.y > ITEM_BOUNDS.top - CONFIG.proximity &&
+        event?.y < ITEM_BOUNDS.top + ITEM_BOUNDS.height + CONFIG.proximity
+      ) {
+        // If within proximity set the active opacity
+        ITEM.style.setProperty('--active', 1)
+      } else {
+        ITEM.style.setProperty('--active', CONFIG.opacity)
+      }
+      const ITEM_CENTER = [
+        ITEM_BOUNDS.left + ITEM_BOUNDS.width * 0.5,
+        ITEM_BOUNDS.top + ITEM_BOUNDS.height * 0.5
+      ]
+      let ANGLE =
+        (Math.atan2(event?.y - ITEM_CENTER[1], event?.x - ITEM_CENTER[0]) *
+          180) /
+        Math.PI
+      ANGLE = ANGLE < 0 ? ANGLE + 360 : ANGLE
+      ITEM.style.setProperty('--start', ANGLE + 90)
+    }
+  }
+
+  document.body.addEventListener('pointermove', UPDATE)
+
+  const RESTYLE = () => {
+    CONTAINER.style.setProperty('--blur', CONFIG.blur)
+    CONTAINER.style.setProperty('--spread', CONFIG.spread)
+  }
+
+  RESTYLE()
+  UPDATE()
+</script>
+
+<style is:inline>
+  :root {
+    --border: hsl(280 10% 50% / 1);
+    --border-width: 2px;
+    --border-radius: 12px;
+    --gradient: conic-gradient(
+      from 180deg at 50% 70%,
+      hsla(0, 0%, 98%, 1) 0deg,
+      #eec32d 72.0000010728836deg,
+      #ec4b4b 144.0000021457672deg,
+      #709ab9 216.00000858306885deg,
+      #4dffbf 288.0000042915344deg,
+      hsla(0, 0%, 98%, 1) 1turn
+    );
+  }
+
+  @property --start {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0;
+  }
+
+  .glow-container {
+    --spread: 60;
+    touch-action: none;
+  }
+
+  .glow-item {
+    --active: 0.15;
+    --start: 0;
+    position: relative;
+  }
+
+  .glow-item:is(:hover, :focus-visible) {
+    z-index: 2;
+  }
+
+  .glows {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    filter: blur(calc(var(--blur) * 1px));
+  }
+
+  .glows::after,
+  .glows::before {
+    content: '';
+    background: var(--gradient);
+    background-attachment: fixed;
+    position: absolute;
+    inset: -5px;
+    border: 10px solid transparent;
+    border-radius: var(--border-radius);
+    mask: linear-gradient(#0000, #0000),
+      conic-gradient(
+        from calc((var(--start) - (var(--spread) * 0.5)) * 1deg),
+        #000 0deg,
+        #fff,
+        #0000 calc(var(--spread) * 1deg)
+      );
+    mask-composite: intersect;
+    mask-clip: padding-box, border-box;
+    opacity: var(--active);
+    transition: opacity 1s;
+  }
+
+  .glow-item::before {
+    position: absolute;
+    inset: 0;
+    border: var(--border-width) solid transparent;
+    content: '';
+    pointer-events: none;
+    background: var(--border);
+    background-attachment: fixed;
+    border-radius: var(--border-radius);
+    mask: linear-gradient(#0000, #0000),
+      conic-gradient(
+        from
+          calc(
+            ((var(--start) + (var(--spread) * 0.25)) - (var(--spread) * 1.5)) *
+              1deg
+          ),
+        hsl(0 0% 100% / 0.15) 0deg,
+        white,
+        hsl(0 0% 100% / 0.15) calc(var(--spread) * 2.5deg)
+      );
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+    opacity: var(--active);
+    transition: opacity 1s;
+  }
+
+  .glow-item::after {
+    --bg-size: 100%;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    background: var(--gradient);
+    background-attachment: fixed;
+    border-radius: var(--border-radius);
+    opacity: var(--active, 0);
+    transition: opacity 1s;
+    inset: 0;
+    border: var(--border-width) solid transparent;
+    mask: linear-gradient(#0000, #0000),
+      conic-gradient(
+        from
+          calc(
+            ((var(--start) + (var(--spread) * 0.25)) - (var(--spread) * 0.5)) *
+              1deg
+          ),
+        #0000 0deg,
+        #fff,
+        #0000 calc(var(--spread) * 0.5deg)
+      );
+    filter: brightness(1.5);
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+  }
+</style>
