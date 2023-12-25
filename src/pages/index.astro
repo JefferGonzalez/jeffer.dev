@@ -1,14 +1,28 @@
 ---
 import GridContainer from '@components/GridContainer.astro'
 import GridItem from '@components/GridItem.astro'
+import AboutMe from '@components/sections/AboutMe.astro'
+import SocialLinks from '@components/sections/SocialLinks.astro'
 import Layout from '@layouts/Layout.astro'
 ---
 
 <Layout title="@JefferGonzález">
   <GridContainer className="grid-flow-row-dense">
-    <GridItem className="row-span-2 col-span-2" />
-    <GridItem />
-    <GridItem />
+    <GridItem className="row-span-2 col-span-2">
+      <AboutMe />
+    </GridItem>
+    <GridItem>
+      <img
+        src="/jeffergonzalez.webp"
+        alt="Jefferson González - Full Stack Developer"
+        title="Jefferson David González Cely"
+        class="rounded-lg mx-auto my-5"
+        loading="lazy"
+      />
+    </GridItem>
+    <GridItem>
+      <SocialLinks />
+    </GridItem>
     <GridItem className="col-span-3" />
     <GridItem className="col-span-3" />
   </GridContainer>
