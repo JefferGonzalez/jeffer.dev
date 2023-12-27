@@ -1,0 +1,18 @@
+---
+import ProjectCard from '@components/ProjectCard.astro'
+import Code from '@components/icons/Code.astro'
+import { Projects as PROJECTS } from '@lib/data'
+---
+
+<section id="projects">
+  <h2
+    class="text-3xl font-semibold flex gap-x-3 justify-center items-center my-4"
+  >
+    <Code />
+     Proyectos
+  </h2>
+
+  <div class="grid gap-4 transition-all md:grid-cols-2 my-6">
+    {PROJECTS.map((project) => <ProjectCard project={project} />)}
+  </div>
+</section>

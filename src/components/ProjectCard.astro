@@ -1,0 +1,72 @@
+---
+import ExternalLinkIcon from '@components/icons/ExternalLink.astro'
+import GitHubIcon from '@components/icons/GitHub.astro'
+import type { Project } from '@lib/data'
+
+interface Props {
+  project: Project
+}
+
+const { project } = Astro.props
+const { title, subtitle, description, image, link, github, tags } = project
+---
+
+<article class="flex flex-col gap-4 p-8 h-full rounded-xl bg-neutral-900">
+  <header class="flex items-center gap-2 justify-between w-full">
+    <div>
+      <h3 class="text-2xl font-semibold">
+        {title}
+      </h3>
+      {subtitle && <span class="text-md text-neutral-500">{subtitle}</span>}
+    </div>
+
+    <div class="flex items-center gap-2">
+      {
+        github && (
+          <a
+            href={github}
+            title="Ir al repositorio"
+            target="_blank"
+            rel="noreferrer noopener"
+            class="p-2 rounded-full bg-zinc-800 hover:bg-zinc-950 transition-colors duration-200 ease-in-out"
+          >
+            <GitHubIcon />
+          </a>
+        )
+      }
+
+      <a
+        href={link}
+        title="Ver proyecto"
+        target="_blank"
+        rel="noreferrer noopener"
+        class="p-2 rounded-full bg-zinc-800 hover:bg-zinc-950 transition-colors duration-200 ease-in-out"
+      >
+        <ExternalLinkIcon />
+      </a>
+    </div>
+  </header>
+
+  <section>
+    <p class="text-pretty my-5" set:html={description} />
+    <img
+      alt={title}
+      title={title}
+      src={`/projects/${image}`}
+      class="rounded-lg w-full h-48 object-cover object-center"
+      loading="lazy"
+    />
+  </section>
+
+  <footer>
+    <ul class="flex items-center gap-1 flex-wrap">
+      {
+        tags.map((tag) => (
+          <li class="flex gap-x-2 rounded-lg text-sm bg-black/10 py-1 px-2 border ">
+            {tag}
+          </li>
+        ))
+      }
+    </ul>
+  </footer>
+</article>
