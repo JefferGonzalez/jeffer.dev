@@ -29,5 +29,19 @@ const { title } = Astro.props
       <NavBar />
       <slot />
     </main>
+
+    <footer class="bg-neutral-900 text-white text-center py-4">
+      <p class="text-sm">
+        Hecho con ❤️ por{' '}
+        <a
+          href="https://github.com/JefferGonzalez"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="GitHub"
+        >
+          JefferGonzalez
+        </a>
+      </p>
+    </footer>
   </body>
 </html>
