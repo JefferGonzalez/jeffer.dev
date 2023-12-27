@@ -1,0 +1,56 @@
+---
+import ArrowRightIcon from '@components/icons/ArrowRight.astro'
+import type { Experience } from '@lib/data'
+
+interface Props {
+  experience: Experience
+}
+
+const { experience } = Astro.props
+
+const { initialDate, finalDate, title, company, description, link, latest } =
+  experience
+---
+
+<div
+  class="absolute size-4 bg-blue-700 rounded-full mt-1 -start-2 border border-gray-900"
+>
+</div>
+
+<time class="mb-1 text-sm text-blue-500 font-normal leading-none">
+  {initialDate} - {finalDate}
+</time>
+
+<h3 class="flex items-center text-2xl font-semibold">
+  {title}
+
+  {
+    latest && (
+      <span class="bg-blue-500 text-sm font-medium me-2 px-2.5 py-0.5 rounded ms-3">
+        Último
+      </span>
+    )
+  }
+</h3>
+
+<h5 class="text-base text-gray-200 mb-2">
+  {company}
+</h5>
+
+<p class="mb-4 text-base font-normal text-gray-200 text-pretty">
+  {description}
+</p>
+
+{
+  link && (
+    <a
+      href={link}
+      title="Saber más"
+      target="_blank"
+      rel="noopener noreferrer"
+      class=" bg-blue-500 hover:bg-blue-700 transition-colors duration-200 ease-in-out rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 md:px-4 text-xs md:text-base"
+    >
+      Saber más... <ArrowRightIcon />
+    </a>
+  )
+}

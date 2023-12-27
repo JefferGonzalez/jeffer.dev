@@ -64,3 +64,33 @@ export const Projects: Project[] = [
     tags: ['React', 'Material UI', ' Node.js', 'Express.js', 'MySQL']
   }
 ]
+
+export interface Experience {
+  initialDate: string
+  finalDate: string
+  title: string
+  company: string
+  description: string
+  link?: string
+  latest?: boolean
+}
+
+export const Experiences: Experience[] = [
+  {
+    initialDate: 'Enero 2023',
+    finalDate: 'Actualidad...',
+    title: 'Consultor SCP',
+    company: 'MQA Business Consultant S.A.',
+    description:
+      'Desarrollo de soluciones empresariales con tecnologías como Java y Javascript.',
+    latest: true
+  },
+  {
+    initialDate: 'Agosto 2021',
+    finalDate: 'Febrero 2022',
+    title: 'Analista de Sistemas - Aprendiz',
+    company: ' Seguros de Vida Suramericana',
+    description:
+      'Lleve a cabo el desarrollo de una aplicación web de estar manera mejorando la velocidad de trabajo en el área de Talento Humano.'
+  }
+]

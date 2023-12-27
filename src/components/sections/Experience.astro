@@ -1,0 +1,24 @@
+---
+import ExperienceItem from '@components/ExperienceItem.astro'
+import BriefcaseIcon from '@components/icons/Briefcase.astro'
+import { Experiences } from '@lib/data'
+---
+
+<section id="experience">
+  <h2
+    class="text-3xl font-semibold flex gap-x-3 justify-center items-center my-4"
+  >
+    <BriefcaseIcon />
+     Experiencia
+  </h2>
+
+  <ol class="relative border-s border-gray-200 ml-3">
+    {
+      Experiences.map((experience) => (
+        <li class="mb-10 ms-4">
+          <ExperienceItem experience={experience} />
+        </li>
+      ))
+    }
+  </ol>
+</section>
