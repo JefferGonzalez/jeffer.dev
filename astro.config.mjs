@@ -9,5 +9,12 @@ export default defineConfig({
   site: 'https://jeffer.dev',
   integrations: [tailwind(), react()],
   output: 'server',
-  adapter: vercel()
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true
+    },
+    speedInsights: {
+      enabled: true
+    }
+  })
 })
