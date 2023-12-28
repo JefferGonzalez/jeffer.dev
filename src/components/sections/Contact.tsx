@@ -1,4 +1,4 @@
-import { useState, type PropsWithChildren } from 'react'
+import React, { useState, type PropsWithChildren } from 'react'
 import { Toaster, toast } from 'sonner'
 
 interface ContactProps extends PropsWithChildren<unknown> {}
@@ -110,7 +110,7 @@ export default function Contact({ children }: ContactProps) {
             type="submit"
             disabled={loading}
             className={
-              `py-2 px-8 font-semibold rounded-full bg-blue-500 hover:bg-blue-700 transition-all duration-300` +
+              'py-2 px-8 font-semibold rounded-full bg-blue-500 hover:bg-blue-700 transition-all duration-300' +
               (loading ? ' animate-bounce' : '')
             }
           >

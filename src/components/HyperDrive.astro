@@ -16,7 +16,8 @@ const { class: className = '' } = Astro.props
   const DURATION = 2500
 
   const effect = { x: 0, y: 0, warpspeed: false, paused: true }
-  let timeout: NodeJS.Timeout
+
+  let timeout: number | null = null
 
   const activeClasses = ['duration-1000']
   const inactiveClasses = ['opacity-0', 'duration-[3s]']
@@ -45,14 +46,6 @@ const { class: className = '' } = Astro.props
       timeout = setTimeout(() => setPaused(true), DURATION)
     }, DURATION)
     run()
-  }
-
-  function leave() {
-    setWarpspeed(false)
-    if (timeout) {
-      clearTimeout(timeout)
-      timeout = setTimeout(() => setPaused(true), DURATION)
-    }
   }
 
   enter()
@@ -93,7 +86,7 @@ const { class: className = '' } = Astro.props
         },
         createCallFunction(name, earlyExit = false) {
           name = name.split(' ')[0]
-          const keys = Object.keys(this)
+
           if (Object.keys(this).indexOf(name) > -1) {
             throw new Error(
               `Can not create function name '${name}' as it already exists.`
@@ -102,11 +95,13 @@ const { class: className = '' } = Astro.props
           if (!/\W/g.test(name)) {
             let func
             if (earlyExit) {
-              func = `var items = this.items; var count = this.getCount(); var i = 0;\nwhile(i < count){ if (items[i++].${name}() === true) { break } }`
+              func = `let items = this.items; let count = this.getCount(); let i = 0;\nwhile(i < count){ if (items[i++].${name}() === true) { break } }`
             } else {
-              func = `var items = this.items; var count = this.getCount(); var i = 0;\nwhile(i < count){ items[i++].${name}() }`
+              func = `let items = this.items; let count = this.getCount(); let i = 0;\nwhile(i < count){ items[i++].${name}() }`
             }
             !this.items && (this.items = items)
+
+            // eslint-disable-next-line no-new-func
             this[name] = new Function(func)
           } else {
             throw new Error(
@@ -162,6 +157,7 @@ const { class: className = '' } = Astro.props
       Math.random() * (max - min) + min
     const doFor = (count, cb) => {
       let i = 0
+      // eslint-disable-next-line n/no-callback-literal
       while (i < count && cb(i++) !== true);
     } // the ; after while loop is important don't remove
 
@@ -265,7 +261,7 @@ const { class: className = '' } = Astro.props
 
     const maxStarCount = 256
     const p = { x: 0, y: 0 }
-    var hyperSpeed = 1.001
+    let hyperSpeed = 1.001
     const alphaZero = sCurve(1, 2)
     let startTime: number | undefined
     function loop(time: number) {
