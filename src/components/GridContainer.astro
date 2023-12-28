@@ -20,55 +20,68 @@ const { className } = Astro.props
 </div>
 
 <script is:inline>
-  const CONTAINER = document.querySelector('.glow-container')
-  const ITEMS = document.querySelectorAll('.glow-item')
+  const container = document.querySelector('.glow-container')
+  const isMobile = /mobile/i.test(window.navigator.userAgent.toLowerCase())
+  const items = document.querySelectorAll('.glow-item')
 
-  const CONFIG = {
-    proximity: 40,
-    spread: 80,
-    blur: 40,
-    opacity: 0
-  }
+  if (isMobile) {
+    const glows = document.querySelectorAll('.glows')
 
-  const UPDATE = (event) => {
-    // get the angle based on the center point of the card and pointer position
-    for (const ITEM of ITEMS) {
-      // Check the card against the proximity and then start updating
-      const ITEM_BOUNDS = ITEM.getBoundingClientRect()
-      // Get distance between pointer and outerbounds of card
-      if (
-        event?.x > ITEM_BOUNDS.left - CONFIG.proximity &&
-        event?.x < ITEM_BOUNDS.left + ITEM_BOUNDS.width + CONFIG.proximity &&
-        event?.y > ITEM_BOUNDS.top - CONFIG.proximity &&
-        event?.y < ITEM_BOUNDS.top + ITEM_BOUNDS.height + CONFIG.proximity
-      ) {
-        // If within proximity set the active opacity
-        ITEM.style.setProperty('--active', 1)
-      } else {
-        ITEM.style.setProperty('--active', CONFIG.opacity)
-      }
-      const ITEM_CENTER = [
-        ITEM_BOUNDS.left + ITEM_BOUNDS.width * 0.5,
-        ITEM_BOUNDS.top + ITEM_BOUNDS.height * 0.5
-      ]
-      let ANGLE =
-        (Math.atan2(event?.y - ITEM_CENTER[1], event?.x - ITEM_CENTER[0]) *
-          180) /
-        Math.PI
-      ANGLE = ANGLE < 0 ? ANGLE + 360 : ANGLE
-      ITEM.style.setProperty('--start', ANGLE + 90)
+    for (const glow of glows) glow.remove()
+
+    for (const item of items) {
+      item.classList.remove('glow-item')
     }
+
+    container.classList.remove('glow-container')
+  } else {
+    const CONFIG = {
+      proximity: 40,
+      spread: 80,
+      blur: 40,
+      opacity: 0
+    }
+
+    const UPDATE = (event) => {
+      // get the angle based on the center point of the card and pointer position
+      for (const item of items) {
+        // Check the card against the proximity and then start updating
+        const ITEM_BOUNDS = item.getBoundingClientRect()
+        // Get distance between pointer and outerbounds of card
+        if (
+          event?.x > ITEM_BOUNDS.left - CONFIG.proximity &&
+          event?.x < ITEM_BOUNDS.left + ITEM_BOUNDS.width + CONFIG.proximity &&
+          event?.y > ITEM_BOUNDS.top - CONFIG.proximity &&
+          event?.y < ITEM_BOUNDS.top + ITEM_BOUNDS.height + CONFIG.proximity
+        ) {
+          // If within proximity set the active opacity
+          item.style.setProperty('--active', 1)
+        } else {
+          item.style.setProperty('--active', CONFIG.opacity)
+        }
+        const ITEM_CENTER = [
+          ITEM_BOUNDS.left + ITEM_BOUNDS.width * 0.5,
+          ITEM_BOUNDS.top + ITEM_BOUNDS.height * 0.5
+        ]
+        let ANGLE =
+          (Math.atan2(event?.y - ITEM_CENTER[1], event?.x - ITEM_CENTER[0]) *
+            180) /
+          Math.PI
+        ANGLE = ANGLE < 0 ? ANGLE + 360 : ANGLE
+        item.style.setProperty('--start', ANGLE + 90)
+      }
+    }
+
+    const RESTYLE = () => {
+      container.style.setProperty('--blur', CONFIG.blur)
+      container.style.setProperty('--spread', CONFIG.spread)
+    }
+
+    RESTYLE()
+    UPDATE()
+
+    document.body.addEventListener('pointermove', UPDATE)
   }
-
-  document.body.addEventListener('pointermove', UPDATE)
-
-  const RESTYLE = () => {
-    CONTAINER.style.setProperty('--blur', CONFIG.blur)
-    CONTAINER.style.setProperty('--spread', CONFIG.spread)
-  }
-
-  RESTYLE()
-  UPDATE()
 </script>
 
 <style is:inline>
