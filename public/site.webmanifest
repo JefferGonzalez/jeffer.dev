@@ -1,6 +1,7 @@
 {
   "name": "@JefferGonzález - Portafolio",
   "short_name": "@JefferGonzález",
+  "start_url": "/",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
