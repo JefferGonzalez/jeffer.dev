@@ -1,14 +1,66 @@
-import type { PropsWithChildren } from 'react'
+import { useState, type PropsWithChildren } from 'react'
+import { Toaster, toast } from 'sonner'
 
 interface ContactProps extends PropsWithChildren<unknown> {}
 
 export default function Contact({ children }: ContactProps) {
+  const [loading, setLoading] = useState(false)
+
+  const getHtml = (name: string, email: string, message: string): string => {
+    return `
+      <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <h1 style="font-size: 1.5rem; font-weight: 600; color: #000;">¡Hola!</h1>
+        <p style="font-size: 1rem; color: #000;">Has recibido un mensaje de ${name}.</p>
+        <div style="background-color: #fff; padding: 1rem; border-radius: 0.5rem; margin-top: 1rem;">
+          <p style="font-size: 1rem; color: #000;">${message}</p>
+        </div>
+        <p style="font-size: 1rem; color: #000;">Puedes responderle a ${name} a través de este correo: ${email}</p>
+      </div>
+    `
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    setLoading(true)
+
     e.preventDefault()
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    const { email, message, name } = Object.fromEntries(formData)
+
+    const data = {
+      from: '👻 Portfolio <onboarding@resend.dev>',
+      subject: `🤑 Nuevo mensaje de ${name}`,
+      text: `${name} te ha enviado un mensaje: ${message}. Puedes responderle a ${name} a través de este correo: ${email}`,
+      html: getHtml(name.toString(), email.toString(), message.toString())
+    }
+
+    const response = await fetch('/api/sendEmail.json', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    let alertMessage =
+      'Tu mensaje ha sido enviado, te responderé lo más pronto posible. ❤️😊'
+
+    if (!response.ok)
+      alertMessage =
+        'Hubo un error al enviar tu mensaje, por favor intenta de nuevo.'
+
+    toast(alertMessage)
+
+    form.reset()
+
+    setLoading(false)
   }
 
   return (
     <section id="contact">
+      <Toaster theme="dark" duration={5000} />
+
       <h2 className="text-3xl font-semibold flex gap-x-3 justify-center items-center my-4">
         {children}
         Contáctame
@@ -56,7 +108,11 @@ export default function Contact({ children }: ContactProps) {
           <button
             id="btn-send"
             type="submit"
-            className="py-2 px-8 font-semibold rounded-full bg-blue-500 hover:bg-blue-700 transition-all duration-300"
+            disabled={loading}
+            className={
+              `py-2 px-8 font-semibold rounded-full bg-blue-500 hover:bg-blue-700 transition-all duration-300` +
+              (loading ? ' animate-bounce' : '')
+            }
           >
             Enviar
           </button>
