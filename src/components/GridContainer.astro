@@ -20,8 +20,11 @@ const { className } = Astro.props
 </div>
 
 <script is:inline>
+  const userAgent = window.navigator.userAgent.toLowerCase()
+  const isTouchDevice = 'ontouchstart' in window && !('pointermove' in window)
+  const isMobile = /(mobile|android)/i.test(userAgent) || isTouchDevice
+
   const container = document.querySelector('.glow-container')
-  const isMobile = /mobile/i.test(window.navigator.userAgent.toLowerCase())
   const items = document.querySelectorAll('.glow-item')
 
   if (isMobile) {
