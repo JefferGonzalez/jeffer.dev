@@ -19,6 +19,7 @@
   "rules": {
     "indent": ["warn", 2],
     "no-unused-vars": "warn",
+    "@typescript-eslint/triple-slash-reference": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {

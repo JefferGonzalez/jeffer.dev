@@ -1,15 +1,15 @@
 ---
 import ArrowRightIcon from '@components/icons/ArrowRight.astro'
-import type { Experience } from '@lib/data'
+import type { Job } from '@types'
 
 interface Props {
-  experience: Experience
+  job: Job
 }
 
-const { experience } = Astro.props
+const { job } = Astro.props
 
 const { initialDate, finalDate, title, company, description, link, latest } =
-  experience
+  job
 ---
 
 <div

@@ -1,7 +1,9 @@
 ---
 import ExperienceItem from '@components/ExperienceItem.astro'
 import BriefcaseIcon from '@components/icons/Briefcase.astro'
-import { Experiences } from '@lib/data'
+import { getEntry } from 'astro:content'
+
+const { data } = await getEntry('jobs', 'es')
 ---
 
 <section id="experience">
@@ -9,14 +11,14 @@ import { Experiences } from '@lib/data'
     class="text-3xl font-semibold flex gap-x-3 justify-center items-center my-4"
   >
     <BriefcaseIcon />
-     Experiencia
+    Experiencia
   </h2>
 
   <ol class="relative border-s border-gray-200 ml-3">
     {
-      Experiences.map((experience) => (
+      data.map((job) => (
         <li class="mb-10 ms-4">
-          <ExperienceItem experience={experience} />
+          <ExperienceItem job={job} />
         </li>
       ))
     }

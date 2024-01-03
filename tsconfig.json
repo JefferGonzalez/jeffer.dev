@@ -1,14 +1,17 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "strictNullChecks": true,
     "isolatedModules": true,
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@lib/*": ["src/lib/*"],
-      "@pages/*": ["src/pages/*"]
+      "@types": ["src/types"],
+      "@pages/*": ["src/pages/*"],
+      "@content/*": ["src/content/*"],
+      "@schemas/*": ["src/schemas/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
