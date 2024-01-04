@@ -4,6 +4,7 @@ import LanguagePicker from '@components/LanguagePicker.astro'
 import NavBar from '@components/NavBar.astro'
 import { languages } from '@i18n/ui'
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
+import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
   title: string
@@ -70,6 +71,8 @@ const { title, description, image } = Astro.props
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
     <meta property="twitter:image:alt" content={title} />
     <meta property="twitter:creator" content="@_JefferGonzalez" />
+
+    <ViewTransitions />
   </head>
   <body>
     <Background />
@@ -90,6 +93,7 @@ const { title, description, image } = Astro.props
           rel="noopener noreferrer"
           title="GitHub"
         >
+          <span class="sr-only">JefferGonzalez</span>
           JefferGonzalez
         </a>
       </p>

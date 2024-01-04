@@ -62,11 +62,13 @@ const NAVBAR_ITEMS = [
   </div>
 </nav>
 
-<script type="module">
-  const hamburgerButton = document.getElementById('hamburger')
-  const navLinks = document.querySelector('.sm\\:flex')
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const hamburgerButton = document.getElementById('hamburger')
+    const navLinks = document.querySelector('.sm\\:flex')
 
-  hamburgerButton.addEventListener('click', () => {
-    navLinks.classList.toggle('hidden')
+    hamburgerButton.addEventListener('click', () => {
+      navLinks.classList.toggle('hidden')
+    })
   })
 </script>

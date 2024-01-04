@@ -11,34 +11,60 @@ const t = useTranslations(lang)
 <div
   class="flex justify-center fixed w-36 h-12 bottom-6 right-5 z-50 bg-neutral-900 rounded-lg shadow-lg border border-neutral-800"
 >
-  <label class="flex items-center gap-2">
-    <span class="sr-only">{t('selectLanguage')}</span>
-    <LanguageFlag flag={flag} language={language} />
-    <select
-      title={t('selectLanguage')}
-      id="language"
-      class="bg-transparent text-gray-300 focus:outline-none"
-    >
+  <button
+    id="language"
+    type="button"
+    class="flex items-center gap-2 bg-transparent text-gray-300 focus:outline-none"
+    aria-haspopup="true"
+    aria-expanded="true"
+    title={t('selectLanguage')}
+  >
+    <span class="sr-only">{language}</span>
+    <LanguageFlag language={language} flag={flag} />
+    {language}
+  </button>
+
+  <div
+    role="menu"
+    class="hidden absolute right-0 bottom-14 w-auto bg-neutral-900 rounded-lg shadow-lg border border-neutral-800"
+    aria-orientation="vertical"
+    aria-labelledby="language"
+  >
+    <div class="flex justify-center flex-col">
       {
-        Object.entries(languages).map(([key, { language }]) => (
-          <option
-            class="bg-black text-gray-300"
-            value={key}
-            selected={key === lang}
-          >
-            {language}
-          </option>
-        ))
+        Object.entries(languages)
+          .filter(([key]) => key !== lang)
+          .map(([key, { flag, language }]) => (
+            <a
+              class="text-gray-300 flex items-center gap-2 hover:bg-neutral-800 w-full px-2 py-1 rounded-lg"
+              href={`/${key}`}
+              role="menuitem"
+              title={language}
+            >
+              <span class="sr-only">{language}</span>
+              <LanguageFlag language={language} flag={flag} />
+              {language}
+            </a>
+          ))
       }
-    </select>
-  </label>
+    </div>
+  </div>
 </div>
 
 <script is:inline>
-  const language = document.getElementById('language')
+  document.addEventListener('astro:page-load', () => {
+    document.getElementById('language').addEventListener('click', (e) => {
+      e.target.parentNode
+        .querySelector('[role="menu"]')
+        .classList.toggle('hidden')
+    })
 
-  language.addEventListener('change', (e) => {
-    const language = e.target.value
-    window.location.href = `/${language}`
+    document.querySelectorAll('[role="menuitem"]').forEach((item) => {
+      item.addEventListener('click', () => {
+        document.querySelector('[role="menu"]').classList.toggle('hidden')
+      })
+    })
   })
 </script>
+
+```

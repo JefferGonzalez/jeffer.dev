@@ -9,7 +9,7 @@
   },
   {
     "title": "Reading List App",
-    "description": "Basado en el reto de pruebas técnicas de <a class='text-blue-500' href='https://pruebastecnicas.com/' target='_blank' rel='noreferrer noopener'>Midudev.</a>",
+    "description": "Basado en el reto de pruebas técnicas de <a class='text-blue-500' href='https://pruebastecnicas.com/' target='_blank' rel='noreferrer noopener'><span class='sr-only'>Midudev</span>Midudev</a>.",
     "link": "https://jeffergonzalez.github.io/reading-list/",
     "image": "Reading List App.webp",
     "github": "https://github.com/JefferGonzalez/reading-list",
@@ -18,7 +18,7 @@
   {
     "title": "XUE",
     "subtitle": "Control de Proveedores Clínicos",
-    "description": "Proyecto inicial que surgió al tratar la solucionar la necesidad que me plantearon en mi experiencia como aprendiz en <a class='text-blue-500' href='https://www.segurossura.com.co/paginas/inicio.aspx' target='_blank' rel='noreferrer noopener'>SURA.</a>",
+    "description": "Proyecto inicial que surgió al tratar la solucionar la necesidad que me plantearon en mi experiencia como aprendiz en <a class='text-blue-500' href='https://www.segurossura.com.co/paginas/inicio.aspx' target='_blank' rel='noreferrer noopener'><span class='sr-only'>SURA</span>SURA</a>.",
     "link": "https://drive.google.com/file/d/18AYDGbfU18rV5sJeYdtfs-HJyqNtBg2i/view?usp=sharing",
     "image": "XUE.webp",
     "tags": ["HTML", "Bootstrap", "jQuery", "PHP", "MySQL"]
@@ -34,7 +34,7 @@
   {
     "title": "ABM OF OPERATIONS",
     "subtitle": "Challenge FullStack JS de Alkemy",
-    "description": "Hecho para el Challenge Fullstack JS de <a class='text-blue-500' href='https://www.alkemy.org/' target='_blank' rel='noreferrer noopener'>Alkemy.</a>",
+    "description": "Hecho para el Challenge Fullstack JS de <a class='text-blue-500' href='https://www.alkemy.org/' target='_blank' rel='noreferrer noopener'><span class='sr-only'>Alkemy</span>Alkemy</a>.",
     "link": "https://drive.google.com/file/d/1syzFWLNpZ_Du91er0uPTi95B25CXDf8m/view?usp=sharing",
     "image": "ABM OF OPERATIONS.webp",
     "github": "https://github.com/JefferGonzalez/Challenge_Alkemy",
@@ -42,7 +42,7 @@
   },
   {
     "title": "Task List App",
-    "description": "Basado en el video de <a class='text-blue-500' href='https://www.youtube.com/watch?v=_zGL_MU29zs' target='_blank' rel='noreferrer noopener'>Fazt Code.</a>",
+    "description": "Basado en el video de <a class='text-blue-500' href='https://www.youtube.com/watch?v=_zGL_MU29zs' target='_blank' rel='noreferrer noopener'><span class='sr-only'>Fazt Code</span>Fazt Code</a>.",
     "link": "https://drive.google.com/file/d/1Bdyx0acQwDW_O2EmVMYVLg7LZV8Ifrf4/view?usp=sharing",
     "image": "Task List App.webp",
     "github": "https://github.com/JefferGonzalez/Task-List",
