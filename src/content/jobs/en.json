@@ -1,0 +1,17 @@
+[
+  {
+    "initialDate": "January 2023",
+    "finalDate": "Present...",
+    "title": "Consultor SCP",
+    "company": "MQA Business Consultant S.A.",
+    "description": "Development of business solutions with technologies such as Java and Javascript.",
+    "latest": true
+  },
+  {
+    "initialDate": "August 2021",
+    "finalDate": "February 2022",
+    "title": "Systems Assistant - Trainee",
+    "company": " Seguros de Vida Suramericana",
+    "description": "I carried out the development of a web tool that sought to streamline some internal processes in the Human Talent area."
+  }
+]

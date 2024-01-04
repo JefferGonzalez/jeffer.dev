@@ -1,11 +1,15 @@
 ---
 import ExternalLinkIcon from '@components/icons/ExternalLink.astro'
 import GitHubIcon from '@components/icons/GitHub.astro'
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
 import type { Project } from '@types'
 
 interface Props {
   project: Project
 }
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 
 const { project } = Astro.props
 const { title, subtitle, description, image, link, github, tags } = project
@@ -25,12 +29,12 @@ const { title, subtitle, description, image, link, github, tags } = project
         github && (
           <a
             href={github}
-            title="Ir al repositorio"
+            title={t('goToRepository')}
             target="_blank"
             rel="noreferrer noopener"
             class="p-2 rounded-full bg-blue-500 hover:bg-blue-700 transition-colors duration-200 ease-in-out"
           >
-            <span class="sr-only">Ir al repositorio</span>
+            <span class="sr-only">{t('goToRepository')}</span>
             <GitHubIcon />
           </a>
         )
@@ -38,12 +42,12 @@ const { title, subtitle, description, image, link, github, tags } = project
 
       <a
         href={link}
-        title="Ver proyecto"
+        title={t('seeProject')}
         target="_blank"
         rel="noreferrer noopener"
         class="p-2 rounded-full bg-blue-500 hover:bg-blue-700 transition-colors duration-200 ease-in-out"
       >
-        <span class="sr-only">Ver proyecto</span>
+        <span class="sr-only">{t('seeProject')}</span>
         <ExternalLinkIcon />
       </a>
     </div>

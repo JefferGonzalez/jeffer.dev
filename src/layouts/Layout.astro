@@ -1,6 +1,9 @@
 ---
 import Background from '@components/Background.astro'
+import LanguagePicker from '@components/LanguagePicker.astro'
 import NavBar from '@components/NavBar.astro'
+import { languages } from '@i18n/ui'
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
 
 interface Props {
   title: string
@@ -9,12 +12,14 @@ interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 
 const { title, description, image } = Astro.props
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <!-- Global Metadata -->
     <meta charset="UTF-8" />
@@ -33,6 +38,15 @@ const { title, description, image } = Astro.props
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
     <link rel="canonical" href={canonicalURL} />
+    {
+      Object.entries(languages).map(([key, { flag }]) => (
+        <link
+          rel="alternate"
+          href={`${Astro.site}${key}`}
+          hreflang={`${key}-${flag}`}
+        />
+      ))
+    }
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -61,9 +75,11 @@ const { title, description, image } = Astro.props
       <slot />
     </main>
 
+    <LanguagePicker />
+
     <footer class="bg-neutral-900 text-white text-center py-4">
       <p class="text-sm">
-        Hecho con ❤️ por{' '}
+        {t('footer')}
         <a
           href="https://github.com/JefferGonzalez"
           target="_blank"

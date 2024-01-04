@@ -1,0 +1,49 @@
+---
+import GridContainer from '@components/GridContainer.astro'
+import GridItem from '@components/GridItem.astro'
+import MessageIcon from '@components/icons/Message.astro'
+import AboutMe from '@components/sections/AboutMe.astro'
+import Contact from '@components/sections/Contact'
+import Experience from '@components/sections/Experience.astro'
+import Projects from '@components/sections/Projects.astro'
+import SocialLinks from '@components/sections/SocialLinks.astro'
+import { useTranslations } from '@i18n/utils'
+import Layout from '@layouts/Layout.astro'
+
+const t = useTranslations('es')
+---
+
+<Layout
+  title="@JefferGonzález"
+  description={t('description')}
+  image="/logo.webp"
+>
+  <GridContainer className="grid-flow-row-dense">
+    <GridItem className="row-span-2 col-span-2">
+      <AboutMe />
+    </GridItem>
+    <GridItem>
+      <img
+        src="/jeffergonzalez.webp"
+        alt="Jefferson González - Full Stack Developer"
+        title="Jefferson David González Cely"
+        class="rounded-lg mx-auto my-5"
+        loading="lazy"
+      />
+    </GridItem>
+    <GridItem>
+      <SocialLinks />
+    </GridItem>
+    <GridItem className="col-span-3">
+      <Experience />
+    </GridItem>
+    <GridItem className="col-span-3">
+      <Projects />
+    </GridItem>
+    <GridItem className="col-span-3">
+      <Contact client:load>
+        <MessageIcon />
+      </Contact>
+    </GridItem>
+  </GridContainer>
+</Layout>

@@ -1,10 +1,15 @@
+import type { common } from '@i18n/ui'
+import { useTranslations } from '@i18n/utils'
 import React, { useState, type PropsWithChildren } from 'react'
 import { Toaster, toast } from 'sonner'
 
-interface ContactProps extends PropsWithChildren<unknown> {}
+interface ContactProps extends PropsWithChildren<unknown> {
+  lang?: keyof typeof common
+}
 
-export default function Contact({ children }: ContactProps) {
+export default function Contact({ children, lang = 'es' }: ContactProps) {
   const [loading, setLoading] = useState(false)
+  const t = useTranslations(lang)
 
   const getHtml = (name: string, email: string, message: string): string => {
     return `
@@ -63,12 +68,12 @@ export default function Contact({ children }: ContactProps) {
 
       <h2 className="text-3xl font-semibold flex gap-x-3 justify-center items-center my-4">
         {children}
-        Contáctame
+        {t('contactMe')}
       </h2>
       <form className="p-5" onSubmit={handleSubmit} method="POST">
         <div className="flex flex-col gap-4 mb-4">
           <label className="text-neutral-100 font-semibold" htmlFor="name">
-            Nombre
+            {t('name')}
           </label>
           <input
             id="name"
@@ -81,7 +86,7 @@ export default function Contact({ children }: ContactProps) {
         </div>
         <div className="flex flex-col gap-4 mb-4">
           <label className="text-neutral-100 font-semibold" htmlFor="email">
-            Correo
+            {t('email')}
           </label>
           <input
             id="email"
@@ -94,13 +99,13 @@ export default function Contact({ children }: ContactProps) {
         </div>
         <div className="flex flex-col gap-4 mb-4">
           <label className="text-neutral-100 font-semibold" htmlFor="message">
-            Mensaje
+            {t('message')}
           </label>
           <textarea
             id="message"
             name="message"
             className="rounded-lg p-3 w-full h-32 max-h-32 resize-none bg-neutral-900 focus:ring-2 focus:ring-gray-900"
-            placeholder="Escribe aquí tu mensaje..."
+            placeholder={t('messagePlaceholder')}
             required
           ></textarea>
         </div>
@@ -114,7 +119,7 @@ export default function Contact({ children }: ContactProps) {
               (loading ? ' animate-bounce' : '')
             }
           >
-            Enviar
+            {t('send')}
           </button>
         </div>
       </form>

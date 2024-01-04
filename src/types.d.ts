@@ -14,6 +14,5 @@ export interface Job {
   title: string
   company: string
   description: string
-  link?: string
   latest?: boolean
 }

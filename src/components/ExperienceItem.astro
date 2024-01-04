@@ -1,15 +1,17 @@
 ---
-import ArrowRightIcon from '@components/icons/ArrowRight.astro'
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
 import type { Job } from '@types'
 
 interface Props {
   job: Job
 }
 
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
 const { job } = Astro.props
 
-const { initialDate, finalDate, title, company, description, link, latest } =
-  job
+const { initialDate, finalDate, title, company, description, latest } = job
 ---
 
 <div
@@ -27,7 +29,7 @@ const { initialDate, finalDate, title, company, description, link, latest } =
   {
     latest && (
       <span class="bg-blue-500 text-sm font-medium me-2 px-2.5 py-0.5 rounded ms-3">
-        Último
+        {t('latest')}
       </span>
     )
   }
@@ -40,17 +42,3 @@ const { initialDate, finalDate, title, company, description, link, latest } =
 <p class="mb-4 text-base font-normal text-gray-200 text-pretty">
   {description}
 </p>
-
-{
-  link && (
-    <a
-      href={link}
-      title="Saber más"
-      target="_blank"
-      rel="noopener noreferrer"
-      class=" bg-blue-500 hover:bg-blue-700 transition-colors duration-200 ease-in-out rounded-full inline-flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 md:px-4 text-xs md:text-base"
-    >
-      Saber más... <ArrowRightIcon />
-    </a>
-  )
-}

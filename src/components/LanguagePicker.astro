@@ -1,0 +1,44 @@
+---
+import LanguageFlag from '@components/LanguageFlag.astro'
+import { languages } from '@i18n/ui'
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const { flag, language } = languages[lang]
+const t = useTranslations(lang)
+---
+
+<div
+  class="flex justify-center fixed w-36 h-12 bottom-6 right-5 z-50 bg-neutral-900 rounded-lg shadow-lg border border-neutral-800"
+>
+  <label class="flex items-center gap-2">
+    <span class="sr-only">{t('selectLanguage')}</span>
+    <LanguageFlag flag={flag} language={language} />
+    <select
+      title={t('selectLanguage')}
+      id="language"
+      class="bg-transparent text-gray-300 focus:outline-none"
+    >
+      {
+        Object.entries(languages).map(([key, { language }]) => (
+          <option
+            class="bg-black text-gray-300"
+            value={key}
+            selected={key === lang}
+          >
+            {language}
+          </option>
+        ))
+      }
+    </select>
+  </label>
+</div>
+
+<script is:inline>
+  const language = document.getElementById('language')
+
+  language.addEventListener('change', (e) => {
+    const language = e.target.value
+    window.location.href = `/${language}`
+  })
+</script>

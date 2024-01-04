@@ -1,9 +1,12 @@
 ---
 import ProjectCard from '@components/ProjectCard.astro'
 import CodeIcon from '@components/icons/Code.astro'
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
 import { getEntry } from 'astro:content'
 
-const { data } = await getEntry('projects', 'es')
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const { data } = await getEntry('projects', lang)
 ---
 
 <section id="projects">
@@ -11,7 +14,7 @@ const { data } = await getEntry('projects', 'es')
     class="text-3xl font-semibold flex gap-x-3 justify-center items-center my-4"
   >
     <CodeIcon />
-    Proyectos
+    {t('projects')}
   </h2>
 
   <div class="grid gap-4 transition-all md:grid-cols-2 my-6">

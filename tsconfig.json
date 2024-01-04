@@ -11,7 +11,8 @@
       "@types": ["src/types"],
       "@pages/*": ["src/pages/*"],
       "@content/*": ["src/content/*"],
-      "@schemas/*": ["src/schemas/*"]
+      "@schemas/*": ["src/schemas/*"],
+      "@i18n/*": ["src/i18n/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

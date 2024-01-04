@@ -1,20 +1,27 @@
 ---
+import HamburgerIcon from '@components/icons/Hamburger.astro'
+import { getLangFromUrl, useTranslatedPath, useTranslations } from '@i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const translatePath = useTranslatedPath(lang)
+
 const NAVBAR_ITEMS = [
   {
-    name: 'Inicio',
-    href: '/#'
+    name: t('home'),
+    href: translatePath('#')
   },
   {
-    name: 'Experiencia',
-    href: '#experience'
+    name: t('experience'),
+    href: translatePath('#experience')
   },
   {
-    name: 'Proyectos',
-    href: '#projects'
+    name: t('projects'),
+    href: translatePath('#projects')
   },
   {
-    name: 'Contacto',
-    href: '#contact'
+    name: t('contact'),
+    href: translatePath('#contact')
   }
 ]
 ---
@@ -34,8 +41,10 @@ const NAVBAR_ITEMS = [
       NAVBAR_ITEMS.map(({ href, name }) => (
         <a
           href={href}
+          title={name}
           class="hover:bg-zinc-900 rounded-lg px-2 py-1 transition-all duration-300 ease-in-out"
         >
+          <span class="sr-only">{name}</span>
           {name}
         </a>
       ))
@@ -47,18 +56,8 @@ const NAVBAR_ITEMS = [
       id="hamburger"
       class="focus:outline-none hover:bg-zinc-950 rounded-lg px-2 py-1 transition-all duration-300 ease-in-out"
     >
-      <svg
-        class="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16m-7 6h7"></path>
-      </svg>
+      <span class="sr-only">{t('menu')}</span>
+      <HamburgerIcon />
     </button>
   </div>
 </nav>
