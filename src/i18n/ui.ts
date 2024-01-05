@@ -1,3 +1,6 @@
+export const defaultLang = 'es'
+export const showDefaultLang = false
+
 export const languages: Record<string, { language: string; flag: string }> = {
   es: {
     language: 'Español',
@@ -8,8 +11,6 @@ export const languages: Record<string, { language: string; flag: string }> = {
     flag: 'US'
   }
 } as const
-
-export const defaultLang = 'es'
 
 export const common = {
   es: {

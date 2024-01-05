@@ -1,6 +1,6 @@
 ---
 import LanguageFlag from '@components/LanguageFlag.astro'
-import { languages } from '@i18n/ui'
+import { defaultLang, languages } from '@i18n/ui'
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
@@ -37,7 +37,7 @@ const t = useTranslations(lang)
           .map(([key, { flag, language }]) => (
             <a
               class="text-gray-300 flex items-center gap-2 hover:bg-neutral-800 w-full px-2 py-1 rounded-lg"
-              href={`/${key}`}
+              href={key === defaultLang ? '/' : `/${key}`}
               role="menuitem"
               title={language}
             >

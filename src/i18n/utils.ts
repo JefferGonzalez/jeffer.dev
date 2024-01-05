@@ -1,4 +1,4 @@
-import { common, defaultLang } from '@i18n/ui'
+import { common, defaultLang, showDefaultLang } from '@i18n/ui'
 
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/')
@@ -8,7 +8,7 @@ export function getLangFromUrl(url: URL) {
 
 export function useTranslatedPath(lang: keyof typeof common) {
   return function translatePath(path: string, l: string = lang) {
-    return `/${l}${path}`
+    return !showDefaultLang && l === defaultLang ? `/${path}` : `/${l}${path}`
   }
 }
 
