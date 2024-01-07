@@ -22,14 +22,16 @@ const t = useTranslations('en')
     <GridItem className="row-span-2 col-span-2">
       <AboutMe />
     </GridItem>
-    <GridItem>
-      <img
-        src="/jeffergonzalez.webp"
-        alt="Jefferson González - Full Stack Developer"
-        title="Jefferson David González Cely"
-        class="rounded-lg mx-auto my-5"
-        loading="lazy"
-      />
+    <GridItem className="row-span-1">
+      <picture>
+        <img
+          src="/jeffergonzalez.webp"
+          alt="Jefferson González - Full Stack Developer"
+          title="Jefferson David González Cely"
+          class="rounded-lg h-full object-cover"
+          loading="lazy"
+        />
+      </picture>
     </GridItem>
     <GridItem>
       <SocialLinks />

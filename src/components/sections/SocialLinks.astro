@@ -1,45 +1,27 @@
 ---
+import SocialPill from '@components/SocialPill.astro'
 import GitHubIcon from '@components/icons/GitHub.astro'
 import LinkedInIcon from '@components/icons/LinkedIn.astro'
 import MailIcon from '@components/icons/Mail.astro'
-import TwitterIcon from '@components/icons/Twitter.astro'
 ---
 
-<section class="flex flex-row gap-1 justify-center items-center mt-1">
-  <a
-    href="https://github.com/JefferGonzalez"
-    target="_blank"
-    rel="noopener noreferrer"
-    title="GitHub"
-  >
-    <span class="sr-only">GitHub</span>
-    <GitHubIcon />
-  </a>
-  <a
+<section
+  class="flex flex-wrap flex-row gap-y-2 gap-x-1 justify-center items-center"
+>
+  <SocialPill href="https://github.com/JefferGonzalez" title="GitHub">
+    <GitHubIcon className="md:size-5" />
+  </SocialPill>
+  <SocialPill
     href="https://www.linkedin.com/in/jeffergonzalez"
-    target="_blank"
-    rel="noopener noreferrer"
     title="LinkedIn"
   >
-    <span class="sr-only">LinkedIn</span>
-    <LinkedInIcon />
-  </a>
-  <a
+    <LinkedInIcon className="md:size-5" />
+  </SocialPill>
+  <SocialPill
     href="mailto:jeffersongonzalezcely@hotmail.com?subject=Hello%20Jeffer&body=Hi!%20I%20found%20your%20website%20and%20I%20want%20to%20talk%20with%20you%20about..."
-    target="_blank"
-    rel="noopener noreferrer"
     title="Email"
+    text="jeffersongonzalezcely@hotmail.com"
   >
-    <span class="sr-only">Email</span>
-    <MailIcon />
-  </a>
-  <a
-    href="https://twitter.com/_JefferGonzalez"
-    target="_blank"
-    rel="noopener noreferrer"
-    title="Twitter"
-  >
-    <span class="sr-only">Twitter</span>
-    <TwitterIcon />
-  </a>
+    <MailIcon className="md:size-5" />
+  </SocialPill>
 </section>

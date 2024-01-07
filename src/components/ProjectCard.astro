@@ -35,7 +35,7 @@ const { title, subtitle, description, image, link, github, tags } = project
             class="p-2 rounded-full bg-blue-500 hover:bg-blue-700 transition-colors duration-200 ease-in-out"
           >
             <span class="sr-only">{t('goToRepository')}</span>
-            <GitHubIcon />
+            <GitHubIcon className="hover:scale-110 transition-colors duration-200" />
           </a>
         )
       }
@@ -48,7 +48,9 @@ const { title, subtitle, description, image, link, github, tags } = project
         class="p-2 rounded-full bg-blue-500 hover:bg-blue-700 transition-colors duration-200 ease-in-out"
       >
         <span class="sr-only">{t('seeProject')}</span>
-        <ExternalLinkIcon />
+        <ExternalLinkIcon
+          className="hover:scale-110 transition-colors duration-200"
+        />
       </a>
     </div>
   </header>
