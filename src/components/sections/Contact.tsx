@@ -1,7 +1,11 @@
+import CopyIcon from '@components/icons/Copy'
 import type { common } from '@i18n/ui'
 import { useTranslations } from '@i18n/utils'
 import React, { useState, type PropsWithChildren } from 'react'
-import { Toaster, toast } from 'sonner'
+import { toast } from 'sonner'
+
+const MAIL = 'jeffersongonzalezcely@hotmail.com'
+const position = 'bottom-left'
 
 interface ContactProps extends PropsWithChildren<unknown> {
   lang?: keyof typeof common
@@ -48,24 +52,24 @@ export default function Contact({ children, lang = 'es' }: ContactProps) {
       }
     })
 
-    let alertMessage =
-      'Tu mensaje ha sido enviado, te responderé lo más pronto posible. ❤️😊'
+    let alertMessage = t('sendSuccess')
 
-    if (!response.ok)
-      alertMessage =
-        'Hubo un error al enviar tu mensaje, por favor intenta de nuevo.'
+    if (!response.ok) alertMessage = t('sendError')
 
-    toast(alertMessage)
+    toast(alertMessage, { position })
 
     form.reset()
 
     setLoading(false)
   }
 
+  const handleCopy = () => {
+    window.navigator.clipboard.writeText(MAIL)
+    toast(t('copySuccess'), { position })
+  }
+
   return (
     <section id="contact">
-      <Toaster theme="dark" duration={5000} />
-
       <h2 className="text-3xl font-semibold flex gap-x-3 justify-center items-center my-4">
         {children}
         {t('contactMe')}
@@ -109,18 +113,31 @@ export default function Contact({ children, lang = 'es' }: ContactProps) {
             required
           ></textarea>
         </div>
-        <div className="flex justify-end">
-          <button
-            id="btn-send"
-            type="submit"
-            disabled={loading}
-            className={
-              'py-2 px-8 font-semibold rounded-full bg-blue-500 hover:bg-blue-700 transition-all duration-300' +
-              (loading ? ' animate-bounce' : '')
-            }
-          >
-            {t('send')}
-          </button>
+        <div className="flex justify-between">
+          <div>
+            <button
+              id="btn-send"
+              type="submit"
+              disabled={loading}
+              className={
+                'py-2 px-8 font-semibold rounded-full bg-blue-500 hover:bg-blue-700 transition-all duration-300' +
+                (loading ? ' animate-bounce' : '')
+              }
+            >
+              {t('send')}
+            </button>
+          </div>
+          <div className="flex items-center gap-2">
+            <span>{t('alternateContact')}</span>
+            <p className="bg-neutral-900 rounded-lg px-4 py-2">{MAIL}</p>
+            <button
+              type="button"
+              className="p-2 rounded-lg font-semibold  bg-blue-500 hover:bg-blue-700 transition-all duration-300"
+              onClick={handleCopy}
+            >
+              <CopyIcon />
+            </button>
+          </div>
         </div>
       </form>
     </section>

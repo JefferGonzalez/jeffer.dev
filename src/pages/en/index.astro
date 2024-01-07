@@ -1,6 +1,7 @@
 ---
 import GridContainer from '@components/GridContainer.astro'
 import GridItem from '@components/GridItem.astro'
+import Toaster from '@components/Toaster'
 import MessageIcon from '@components/icons/Message.astro'
 import AboutMe from '@components/sections/AboutMe.astro'
 import Contact from '@components/sections/Contact'
@@ -48,4 +49,6 @@ const t = useTranslations('en')
       </Contact>
     </GridItem>
   </GridContainer>
+
+  <Toaster client:load />
 </Layout>

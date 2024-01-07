@@ -32,6 +32,12 @@ export const common = {
     message: 'Mensaje',
     messagePlaceholder: 'Escribe aquí tu mensaje...',
     send: 'Enviar',
+    sendSuccess:
+      'Tu mensaje ha sido enviado, te responderé lo más pronto posible. ❤️😊',
+    sendError:
+      'Hubo un error al enviar tu mensaje, por favor intenta de nuevo.',
+    alternateContact: 'O escríbeme a ',
+    copySuccess: 'Copiado al portapapeles',
     footer: 'Hecho con ❤️ por'
   },
   en: {
@@ -53,6 +59,11 @@ export const common = {
     message: 'Message',
     messagePlaceholder: 'Write your message here...',
     send: 'Send',
+    sendSuccess:
+      'Your message has been sent, I will reply as soon as possible. ❤️😊',
+    sendError: 'There was an error sending your message, please try again.',
+    alternateContact: 'Or write me to ',
+    copySuccess: 'Copied to clipboard',
     footer: 'Made with ❤️ by'
   }
 } as const
