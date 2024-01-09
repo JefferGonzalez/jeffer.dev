@@ -5,6 +5,7 @@ import React, { useState, type PropsWithChildren } from 'react'
 import { toast } from 'sonner'
 
 const MAIL = 'jeffersongonzalezcely@hotmail.com'
+const ALLOW_COPY = !!window.navigator.clipboard
 const position = 'bottom-left'
 
 interface ContactProps extends PropsWithChildren<unknown> {
@@ -113,30 +114,40 @@ export default function Contact({ children, lang = 'es' }: ContactProps) {
             required
           ></textarea>
         </div>
-        <div className="flex justify-between">
+        <div className="flex flex-col gap-4 md:flex-row md:justify-between">
           <div>
             <button
               id="btn-send"
               type="submit"
+              title={t('send')}
               disabled={loading}
               className={
                 'py-2 px-8 font-semibold rounded-full bg-blue-500 hover:bg-blue-700 transition-all duration-300' +
                 (loading ? ' animate-bounce' : '')
               }
             >
+              <span className="sr-only">{t('send')}</span>
               {t('send')}
             </button>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col gap-2 md:flex-row md:items-center">
             <span>{t('alternateContact')}</span>
-            <p className="bg-neutral-900 rounded-lg px-4 py-2">{MAIL}</p>
-            <button
-              type="button"
-              className="p-2 rounded-lg font-semibold  bg-blue-500 hover:bg-blue-700 transition-all duration-300"
-              onClick={handleCopy}
-            >
-              <CopyIcon />
-            </button>
+            <div className="flex gap-2 items-center">
+              <p className="bg-neutral-900 rounded-lg px-3 py-2 text-xs md:text-base">
+                {MAIL}
+              </p>
+              {ALLOW_COPY && (
+                <button
+                  type="button"
+                  className="size-8 md:size-auto flex items-center p-1 rounded-lg font-semibold bg-blue-500 hover:bg-blue-700 transition-all duration-300"
+                  title={t('copy')}
+                  onClick={handleCopy}
+                >
+                  <span className="sr-only">{t('copy')}</span>
+                  <CopyIcon />
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </form>

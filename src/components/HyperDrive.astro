@@ -294,16 +294,10 @@ const { class: className = '' } = Astro.props
 
         ctx.fillStyle = `rgba(0,0,0,${1 - (hs - alphaZero) * 2})`
         ctx.fillRect(0, 0, w, h)
-        // the amount to expand canvas feedback
-        const sx = (hyperSpeed - 1) * cw * 0.05
-        const sy = (hyperSpeed - 1) * ch * 0.05
 
         // increase alpha as speed increases
         ctx.globalAlpha = (hs - alphaZero) * 2
         ctx.globalCompositeOperation = 'lighter'
-        // draws feedback twice
-        ctx.drawImage(canvas, -sx, -sy, w + sx * 2, h + sy * 2)
-        ctx.drawImage(canvas, -sx / 2, -sy / 2, w + sx, h + sy)
         ctx.globalCompositeOperation = 'source-over'
 
         // add stars if count < maxStarCount

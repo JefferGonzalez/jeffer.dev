@@ -54,14 +54,14 @@ const t = useTranslations(lang)
 <script is:inline>
   document.addEventListener('astro:page-load', () => {
     document.getElementById('language').addEventListener('click', (e) => {
-      e.target.parentNode
-        .querySelector('[role="menu"]')
-        .classList.toggle('hidden')
+      e?.target?.parentNode
+        ?.querySelector('[role="menu"]')
+        ?.classList.toggle('hidden')
     })
 
     document.querySelectorAll('[role="menuitem"]').forEach((item) => {
       item.addEventListener('click', () => {
-        document.querySelector('[role="menu"]').classList.toggle('hidden')
+        document.querySelector('[role="menu"]')?.classList.toggle('hidden')
       })
     })
   })
