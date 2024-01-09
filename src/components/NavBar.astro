@@ -42,7 +42,7 @@ const NAVBAR_ITEMS = [
         <a
           href={href}
           title={name}
-          class="hover:bg-zinc-900 text-xs md:text-base rounded-lg px-2 py-1 transition-all duration-300 ease-in-out"
+          class="hover:bg-zinc-900 text-xs md:text-base rounded-lg p-1 transition-all duration-300 ease-in-out"
         >
           <span class="sr-only">{name}</span>
           {name}
@@ -69,6 +69,12 @@ const NAVBAR_ITEMS = [
 
     hamburgerButton.addEventListener('click', () => {
       navLinks.classList.toggle('hidden')
+    })
+
+    navLinks.childNodes.forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.add('hidden')
+      })
     })
   })
 </script>
