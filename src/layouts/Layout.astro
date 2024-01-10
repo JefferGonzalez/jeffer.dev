@@ -2,7 +2,7 @@
 import Background from '@components/Background.astro'
 import LanguagePicker from '@components/LanguagePicker.astro'
 import NavBar from '@components/NavBar.astro'
-import { languages, defaultLang } from '@i18n/ui'
+import { languages } from '@i18n/ui'
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
 import { ViewTransitions } from 'astro:transitions'
 
@@ -44,11 +44,12 @@ const { title, description, image } = Astro.props
       content="9fcGyCIWHb-ya3ivF9FCiDLhj9fE_xLFc-yyJqkg21A"
     />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" href={Astro.site} hreflang="x-default" />
     {
       Object.entries(languages).map(([key, { flag }]) => (
         <link
           rel="alternate"
-          href={key === defaultLang ? Astro.site : `${Astro.site}${key}`}
+          href={`${Astro.site}${key}`}
           hreflang={`${key}-${flag}`}
         />
       ))
@@ -78,7 +79,7 @@ const { title, description, image } = Astro.props
   <body>
     <Background />
 
-    <main class="container m-auto p-4 max-w-screen-lg mb-10 text-white">
+    <main class="container max-w-[1100px] m-auto p-4 mb-10 text-white">
       <NavBar />
       <slot />
     </main>
