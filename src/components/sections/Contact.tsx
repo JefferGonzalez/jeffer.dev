@@ -84,6 +84,7 @@ export default function Contact({ children, lang = 'es' }: ContactProps) {
             id="name"
             name="name"
             type="text"
+            autoComplete="name"
             className="rounded-lg p-3 w-full bg-neutral-900 focus:ring-2 focus:ring-gray-900"
             placeholder="John Doe"
             required
@@ -97,6 +98,7 @@ export default function Contact({ children, lang = 'es' }: ContactProps) {
             id="email"
             name="email"
             type="email"
+            autoComplete="email"
             className="rounded-lg p-3 w-full bg-neutral-900 focus:ring-2 focus:ring-gray-900"
             placeholder="john@example.com"
             required
