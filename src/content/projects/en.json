@@ -22,30 +22,5 @@
     "link": "https://drive.google.com/file/d/18AYDGbfU18rV5sJeYdtfs-HJyqNtBg2i/view?usp=sharing",
     "image": "XUE.webp",
     "tags": ["HTML", "Bootstrap", "jQuery", "PHP", "MySQL"]
-  },
-  {
-    "title": "Portfolio",
-    "description": "First version of my portfolio.",
-    "link": "https://jeffergonzalez.github.io/portfolio/",
-    "image": "PortfolioV1.webp",
-    "github": "https://github.com/JefferGonzalez/portfolio",
-    "tags": ["React", "i18n", "Bootstrap", "JavaScript", "HTML", "CSS"]
-  },
-  {
-    "title": "ABM OF OPERATIONS",
-    "subtitle": "Challenge FullStack JS de Alkemy",
-    "description": "Made for the Fullstack JS Challenge <a class='text-blue-500' href='https://www.alkemy.org/' target='_blank' rel='noreferrer noopener'><span class='sr-only'>Alkemy</span>Alkemy.</a>",
-    "link": "https://drive.google.com/file/d/1syzFWLNpZ_Du91er0uPTi95B25CXDf8m/view?usp=sharing",
-    "image": "ABM OF OPERATIONS.webp",
-    "github": "https://github.com/JefferGonzalez/Challenge_Alkemy",
-    "tags": ["React", "Bootstrap", "Node.js", "Express.js", "MySQL", "Auth0"]
-  },
-  {
-    "title": "Task List App",
-    "description": "Based on the video of <a class='text-blue-500' href='https://www.youtube.com/watch?v=_zGL_MU29zs' target='_blank' rel='noreferrer noopener'><span class='sr-only'>Fazt Code</span>Fazt Code</a>.",
-    "link": "https://drive.google.com/file/d/1Bdyx0acQwDW_O2EmVMYVLg7LZV8Ifrf4/view?usp=sharing",
-    "image": "Task List App.webp",
-    "github": "https://github.com/JefferGonzalez/Task-List",
-    "tags": ["React", "Material UI", " Node.js", "Express.js", "MySQL"]
   }
 ]
