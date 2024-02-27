@@ -39,7 +39,8 @@ export const common = {
     alternateContact: 'O escríbeme a:',
     copy: 'Copiar',
     copySuccess: 'Copiado al portapapeles',
-    footer: 'Hecho con ❤️ por'
+    footer: 'Hecho con ❤️ por',
+    inspiration: 'Inspirado en'
   },
   en: {
     description:
@@ -66,6 +67,7 @@ export const common = {
     alternateContact: 'Or write me to:',
     copy: 'Copy',
     copySuccess: 'Copied to clipboard',
-    footer: 'Made with ❤️ by'
+    footer: 'Made with ❤️ by',
+    inspiration: 'Inspired by'
   }
 } as const

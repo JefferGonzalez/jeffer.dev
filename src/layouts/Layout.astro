@@ -86,8 +86,10 @@ const { title, description, image } = Astro.props
 
     <LanguagePicker />
 
-    <footer class="bg-neutral-900 text-white text-center py-4">
-      <p class="text-sm">
+    <footer
+      class="flex justify-center items-center bg-neutral-900 text-white text-base py-4 gap-x-1"
+    >
+      <p>
         {t('footer')}
         <a
           href="https://github.com/JefferGonzalez"
@@ -99,7 +101,28 @@ const { title, description, image } = Astro.props
           JefferGonzalez
         </a>
       </p>
+
+      <p>
+        | {t('inspiration')}
+        <span class="sr-only">| {t('inspiration')}</span>
+      </p>
+
+      <img
+        loading="lazy"
+        class="rounded-full shadow-lg size-8 cursor-pointer"
+        src="/midudev.webp"
+        title="midudev"
+        alt="Miguel Ángel Durán"
+      />
     </footer>
+
+    <script>
+      const midudev = document.querySelector('img[title="midudev"]')
+
+      midudev?.addEventListener('click', () => {
+        window.open('https://github.com/midudev', '_blank')
+      })
+    </script>
 
     <!-- Vercel Speed Insights -->
     <script defer src="/_vercel/speed-insights/script.js"></script>
