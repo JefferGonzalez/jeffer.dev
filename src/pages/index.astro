@@ -46,11 +46,11 @@ const t = useTranslations(defaultLang)
       <Projects />
     </GridItem>
     <GridItem className="col-span-full">
-      <Contact client:only>
+      <Contact client:only="react">
         <MessageIcon />
       </Contact>
     </GridItem>
   </GridContainer>
 
-  <Toaster client:only />
+  <Toaster client:only="react" />
 </Layout>
