@@ -124,8 +124,8 @@ export default function Contact({ children, lang = 'es' }: ContactProps) {
               title={t('send')}
               disabled={loading}
               className={
-                'py-2 px-8 font-semibold rounded-full bg-blue-500 hover:bg-blue-700 transition-all duration-300' +
-                (loading ? ' animate-bounce' : '')
+                'py-2 px-8 font-semibold rounded-full bg-blue-500 hover:bg-blue-700 transition-all duration-300 cursor-pointer' +
+                (loading ? ' animate-bounce cursor-progress' : '')
               }
             >
               <span className="sr-only">{t('send')}</span>
@@ -141,7 +141,7 @@ export default function Contact({ children, lang = 'es' }: ContactProps) {
               {ALLOW_COPY && (
                 <button
                   type="button"
-                  className="size-8 md:size-auto flex items-center p-1 rounded-lg font-semibold bg-blue-500 hover:bg-blue-700 transition-all duration-300"
+                  className="size-8 md:size-auto flex items-center p-1 rounded-lg font-semibold bg-blue-500 hover:bg-blue-700 transition-all duration-300 cursor-pointer"
                   title={t('copy')}
                   onClick={handleCopy}
                 >

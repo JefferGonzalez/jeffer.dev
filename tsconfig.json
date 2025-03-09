@@ -13,7 +13,8 @@
       "@content/*": ["src/content/*"],
       "@schemas/*": ["src/schemas/*"],
       "@i18n/*": ["src/i18n/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@styles/*": ["src/styles/*"],
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

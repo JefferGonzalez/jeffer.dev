@@ -9,12 +9,12 @@ const t = useTranslations(lang)
 ---
 
 <div
-  class="flex justify-center fixed w-36 h-12 bottom-6 right-5 z-50 bg-neutral-900 rounded-lg shadow-lg border border-neutral-800"
+  class="flex justify-center fixed h-12 bottom-6 right-5 z-50 bg-neutral-900 rounded-lg shadow-lg border border-neutral-800"
 >
   <button
     id="language"
     type="button"
-    class="flex items-center gap-2 bg-transparent text-gray-300 focus:outline-none"
+    class="flex items-center px-2 gap-2 bg-transparent hover:bg-neutral-800 text-gray-300 cursor-pointer"
     aria-haspopup="true"
     aria-expanded="true"
     title={t('selectLanguage')}
