@@ -4,14 +4,14 @@
     "finalDate": "Present...",
     "title": "Consultor SCP",
     "company": "MQA Business Consultant S.A.",
-    "description": "Development of business solutions with technologies such as Java and Javascript.",
+    "description": "- Developed enterprise solutions with Java for internal applications and client projects, improving operational efficiency and optimizing key company processes.\n- Participated in integrations with ERP systems using JavaScript, SAPUI5, and XSJS on SAP HANA, developing both the frontend and services, which enabled smoother integration between systems.\n- Strengthened skills in web development and service architecture by implementing critical functionalities in enterprise environments, contributing to the growth and continuous improvement of internal projects.",
     "latest": true
   },
   {
     "initialDate": "August 2021",
     "finalDate": "February 2022",
-    "title": "Systems Assistant - Trainee",
-    "company": " Seguros de Vida Suramericana",
-    "description": "I carried out the development of a web tool that sought to streamline some internal processes in the Human Talent area."
+    "title": "Systems Assistant (Trainee)",
+    "company": "Seguros de Vida Suramericana S.A.",
+    "description": "- I developed a Java web application to manage and centralize information from the Human Talent area, optimizing control and access to supplier data, improving operational efficiency, and reducing data management time."
   }
 ]

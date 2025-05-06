@@ -4,14 +4,14 @@
     "finalDate": "Actualidad...",
     "title": "Consultor SCP",
     "company": "MQA Business Consultant S.A.",
-    "description": "Desarrollo de soluciones empresariales con tecnologías como Java y JavaScript.",
+    "description": "- Desarrollo de soluciones empresariales con Java para aplicaciones internas y proyectos a clientes, mejorando la eficiencia operativa y optimizando procesos clave en la empresa.\n- Participación en integraciones con sistemas ERP utilizando JavaScript, SAPUI5 y XSJS sobre SAP HANA, desarrollando tanto el frontend como los servicios, lo que permitió una integración más fluida entre sistemas.\n- Fortalecí habilidades en desarrollo web y arquitectura de servicios al implementar funcionalidades críticas en entornos empresariales, contribuyendo al crecimiento y mejora continua de los proyectos internos.",
     "latest": true
   },
   {
     "initialDate": "Agosto 2021",
     "finalDate": "Febrero 2022",
-    "title": "Analista de Sistemas - Aprendiz",
-    "company": " Seguros de Vida Suramericana",
-    "description": "Lleve a cabo el desarrollo de una aplicación web de esta manera mejorando la velocidad de trabajo en el área de Talento Humano."
+    "title": "Analista de Sistemas (Aprendiz)",
+    "company": "Seguros de Vida Suramericana S.A.",
+    "description": "- Desarrollé una aplicación web en Java para gestionar y centralizar la información del área de Talento Humano, optimizando el control y acceso a los datos de proveedores, mejorando la eficiencia operativa y reduciendo el tiempo de gestión de datos."
   }
 ]
