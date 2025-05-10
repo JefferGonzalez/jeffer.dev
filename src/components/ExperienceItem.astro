@@ -1,6 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
-import type { Job } from '@types'
+import type { Job } from '@schemas/job.schema'
 
 interface Props {
   job: Job
@@ -19,26 +19,29 @@ const { initialDate, finalDate, title, company, description, latest } = job
 >
 </div>
 
-<time class="mb-1 text-sm text-blue-500 font-normal leading-none">
-  {initialDate} - {finalDate}
-</time>
+<header>
+  <time class="mb-1 text-sm text-blue-500 font-normal leading-none">
+    {initialDate} - {finalDate}
+  </time>
 
-<h3 class="flex items-center text-2xl font-semibold">
-  {title}
+  <h4 class="flex items-center text-2xl font-semibold">
+    {title}
+    {
+      latest && (
+        <span class="bg-blue-500 text-sm font-medium me-2 px-2.5 py-0.5 rounded ms-3">
+          {t('latest')}
+        </span>
+      )
+    }
+  </h4>
 
-  {
-    latest && (
-      <span class="bg-blue-500 text-sm font-medium me-2 px-2.5 py-0.5 rounded ms-3">
-        {t('latest')}
-      </span>
-    )
-  }
-</h3>
+  <h5 class="text-base text-gray-200 mb-2">
+    {company}
+  </h5>
+</header>
 
-<h5 class="text-base text-gray-200 mb-2">
-  {company}
-</h5>
-
-<p class="whitespace-pre-line mb-4 text-base font-normal text-gray-200 text-pretty">
-  {description}
-</p>
+<ul
+  class="list-disc list-inside text-base font-normal text-gray-200 text-pretty"
+>
+  {description.map((item) => <li>{item}</li>)}
+</ul>

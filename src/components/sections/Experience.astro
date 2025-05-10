@@ -18,13 +18,13 @@ const data = await getJobsData(lang)
     {t('experience')}
   </h2>
 
-  <ol class="relative border-s border-gray-200 ml-3">
+  <section class="relative border-s border-gray-200 ml-3">
     {
       data.map((job) => (
-        <li class="mb-10 ms-4">
+        <article class="mb-10 ms-4">
           <ExperienceItem job={job} />
-        </li>
+        </article>
       ))
     }
-  </ol>
+  </section>
 </section>

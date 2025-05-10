@@ -11,3 +11,5 @@ export const project = z.array(
     tags: z.array(z.string())
   })
 )
+
+export type Project = z.infer<typeof project>
