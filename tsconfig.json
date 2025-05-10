@@ -3,7 +3,7 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "isolatedModules": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],

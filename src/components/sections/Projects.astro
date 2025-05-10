@@ -2,11 +2,12 @@
 import ProjectCard from '@components/ProjectCard.astro'
 import CodeIcon from '@components/icons/Code.astro'
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
-import { getEntry } from 'astro:content'
+import { getProjectsData } from 'src/utils/content'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
-const { data } = await getEntry('projects', lang)
+
+const data = await getProjectsData(lang)
 ---
 
 <section id="projects">

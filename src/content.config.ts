@@ -3,24 +3,25 @@ import { job } from '@schemas/job.schema'
 import { missing } from '@schemas/missing.schema'
 import { project } from '@schemas/project.schema'
 import { defineCollection } from 'astro:content'
+import { glob } from 'astro/loaders'
 
 const aboutCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/about' }),
   schema: about
 })
 
 const projectCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/projects' }),
   schema: project
 })
 
 const jobsCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/jobs' }),
   schema: job
 })
 
 const missingCollection = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/missing' }),
   schema: missing
 })
 

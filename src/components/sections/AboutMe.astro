@@ -1,10 +1,11 @@
 ---
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
-import { getEntry } from 'astro:content'
+import { getAboutData } from 'src/utils/content'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
-const { data } = await getEntry('about', lang)
+
+const data = await getAboutData(lang)
 ---
 
 <section class="m-3 text-pretty">

@@ -2,11 +2,12 @@
 import ExperienceItem from '@components/ExperienceItem.astro'
 import BriefcaseIcon from '@components/icons/Briefcase.astro'
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
-import { getEntry } from 'astro:content'
+import { getJobsData } from 'src/utils/content'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
-const { data } = await getEntry('jobs', lang)
+
+const data = await getJobsData(lang)
 ---
 
 <section id="experience">
