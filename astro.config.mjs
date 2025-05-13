@@ -6,7 +6,7 @@ import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://jeffer-dev.vercel.app',
+  site: 'https://www.jeffer.dev',
   vite: {
     plugins: [tailwindcss()]
   },
