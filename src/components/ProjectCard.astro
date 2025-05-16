@@ -1,8 +1,8 @@
 ---
-import ExternalLinkIcon from '@components/icons/ExternalLink.astro'
-import GitHubIcon from '@components/icons/GitHub.astro'
-import { getLangFromUrl, useTranslations } from '@i18n/utils'
-import type { Project } from '@types'
+import ExternalLinkIcon from '@/components/icons/ExternalLink.astro'
+import GitHubIcon from '@/components/icons/GitHub.astro'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import type { Project } from '@/schemas/project.schema'
 
 interface Props {
   project: Project

@@ -1,6 +1,6 @@
 ---
-import { getLangFromUrl, useTranslations } from '@i18n/utils'
-import { getAboutData } from 'src/utils/content'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import { getAboutData } from '@/utils/content'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)

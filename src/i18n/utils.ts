@@ -1,4 +1,4 @@
-import { common, defaultLang, showDefaultLang } from '@i18n/ui'
+import { common, defaultLang, showDefaultLang } from '@/i18n/ui'
 
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/')

@@ -1,7 +1,7 @@
 ---
-import { getLangFromUrl, useTranslatedPath, useTranslations } from '@i18n/utils'
-import Layout from '@layouts/Layout.astro'
-import { getMissingData } from 'src/utils/content'
+import { getLangFromUrl, useTranslatedPath, useTranslations } from '@/i18n/utils'
+import Layout from '@/layouts/Layout.astro'
+import { getMissingData } from '@/utils/content'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)

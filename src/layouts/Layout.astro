@@ -1,11 +1,11 @@
 ---
-import '@styles/global.css'
+import '@/styles/global.css'
 
-import Background from '@components/Background.astro'
-import LanguagePicker from '@components/LanguagePicker.astro'
-import NavBar from '@components/NavBar.astro'
-import { languages } from '@i18n/ui'
-import { getLangFromUrl, useTranslations } from '@i18n/utils'
+import Background from '@/components/Background.astro'
+import LanguagePicker from '@/components/LanguagePicker.astro'
+import NavBar from '@/components/NavBar.astro'
+import { languages } from '@/i18n/ui'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 import { ClientRouter } from 'astro:transitions'
 
 interface Props {

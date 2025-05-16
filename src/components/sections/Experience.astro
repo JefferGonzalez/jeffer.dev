@@ -1,8 +1,8 @@
 ---
-import ExperienceItem from '@components/ExperienceItem.astro'
-import BriefcaseIcon from '@components/icons/Briefcase.astro'
-import { getLangFromUrl, useTranslations } from '@i18n/utils'
-import { getJobsData } from 'src/utils/content'
+import ExperienceItem from '@/components/ExperienceItem.astro'
+import BriefcaseIcon from '@/components/icons/Briefcase.astro'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import { getJobsData } from '@/utils/content'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)

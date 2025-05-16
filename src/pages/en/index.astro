@@ -1,15 +1,15 @@
 ---
-import GridContainer from '@components/GridContainer.astro'
-import GridItem from '@components/GridItem.astro'
-import Toaster from '@components/Toaster'
-import MessageIcon from '@components/icons/Message.astro'
-import AboutMe from '@components/sections/AboutMe.astro'
-import Contact from '@components/sections/Contact'
-import Experience from '@components/sections/Experience.astro'
-import Projects from '@components/sections/Projects.astro'
-import SocialLinks from '@components/sections/SocialLinks.astro'
-import { useTranslations } from '@i18n/utils'
-import Layout from '@layouts/Layout.astro'
+import GridContainer from '@/components/GridContainer.astro'
+import GridItem from '@/components/GridItem.astro'
+import Toaster from '@/components/Toaster'
+import MessageIcon from '@/components/icons/Message.astro'
+import AboutMe from '@/components/sections/AboutMe.astro'
+import Contact from '@/components/sections/Contact'
+import Experience from '@/components/sections/Experience.astro'
+import Projects from '@/components/sections/Projects.astro'
+import SocialLinks from '@/components/sections/SocialLinks.astro'
+import { useTranslations } from '@/i18n/utils'
+import Layout from '@/layouts/Layout.astro'
 
 const t = useTranslations('en')
 ---

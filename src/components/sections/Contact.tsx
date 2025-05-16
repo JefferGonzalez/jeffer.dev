@@ -1,6 +1,6 @@
-import CopyIcon from '@components/icons/Copy'
-import type { common } from '@i18n/ui'
-import { useTranslations } from '@i18n/utils'
+import CopyIcon from '@/components/icons/Copy'
+import type { common } from '@/i18n/ui'
+import { useTranslations } from '@/i18n/utils'
 import React, { useState, type PropsWithChildren } from 'react'
 import { toast } from 'sonner'
 
