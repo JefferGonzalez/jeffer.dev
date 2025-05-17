@@ -1,19 +1,25 @@
 [
   {
-    "title": "Escape The QA Maze",
-    "description": "Juego para aprender conceptos de control de calidad. Hecho para un proyecto de la universidad.",
-    "link": "https://jeffergonzalez.github.io/escape-the-qa-maze/",
-    "image": "Escape The QA Maze.webp",
-    "github": "https://github.com/JefferGonzalez/escape-the-qa-maze",
-    "tags": ["React", "CSS", "JavaScript", "HTML"]
-  },
-  {
-    "title": "Reading List App",
-    "description": "Basado en el reto de pruebas técnicas de <a class='text-blue-500' href='https://pruebastecnicas.com/' target='_blank' rel='noreferrer noopener'><span class='sr-only'>Midudev</span>Midudev</a>.",
-    "link": "https://jeffergonzalez.github.io/reading-list/",
-    "image": "Reading List App.webp",
-    "github": "https://github.com/JefferGonzalez/reading-list",
-    "tags": ["React", "Bootstrap", "Drag & Drop", "LocalStorage", "Driver.js"]
+    "title": "QuickLink | URL Shortener",
+    "subtitle": "Acortador de URL Open Source",
+    "description": "QuickLink es una aplicación open source para acortar URLs, desarrollada con TypeScript y el stack PERN (PostgreSQL, Express, React y Node.js). Permite generar enlaces cortos y códigos QR, con autenticación mediante JWT y manejo de cookies. Su interfaz es moderna y responsiva gracias a Tailwind CSS.",
+    "link": "https://quicklink.jeffer.dev/",
+    "github": [
+      "https://github.com/JefferGonzalez/quicklink",
+      "https://github.com/JefferGonzalez/quicklink-api"
+    ],
+    "image": "quicklink.webp",
+    "tags": [
+      "React.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Prisma",
+      "JWT Authentication",
+      "Cookies"
+    ]
   },
   {
     "title": "XUE",
@@ -22,5 +28,21 @@
     "link": "https://drive.google.com/file/d/18AYDGbfU18rV5sJeYdtfs-HJyqNtBg2i/view?usp=sharing",
     "image": "XUE.webp",
     "tags": ["HTML", "Bootstrap", "jQuery", "PHP", "MySQL"]
+  },
+  {
+    "title": "Reading List App",
+    "description": "Basado en el reto de pruebas técnicas de <a class='text-blue-500' href='https://pruebastecnicas.com/' target='_blank' rel='noreferrer noopener'><span class='sr-only'>Midudev</span>Midudev</a>.",
+    "link": "https://jeffergonzalez.github.io/reading-list/",
+    "image": "Reading List App.webp",
+    "github": ["https://github.com/JefferGonzalez/reading-list"],
+    "tags": ["React.js", "Bootstrap", "Drag & Drop", "LocalStorage", "Driver.js"]
+  },
+  {
+    "title": "Escape The QA Maze",
+    "description": "Juego para aprender conceptos de control de calidad. Hecho para un proyecto de la universidad.",
+    "link": "https://jeffergonzalez.github.io/escape-the-qa-maze/",
+    "image": "Escape The QA Maze.webp",
+    "github": ["https://github.com/JefferGonzalez/escape-the-qa-maze"],
+    "tags": ["React.js", "CSS", "JavaScript", "HTML"]
   }
 ]

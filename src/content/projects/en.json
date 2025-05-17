@@ -1,19 +1,25 @@
 [
   {
-    "title": "Escape The QA Maze",
-    "description": "Game to learn quality control concepts. Made for a university project.",
-    "link": "https://jeffergonzalez.github.io/escape-the-qa-maze/",
-    "image": "Escape The QA Maze.webp",
-    "github": "https://github.com/JefferGonzalez/escape-the-qa-maze",
-    "tags": ["React", "CSS", "JavaScript", "HTML"]
-  },
-  {
-    "title": "Reading List App",
-    "description": "Based on the technical tests challenge <a class='text-blue-500' href='https://pruebastecnicas.com/' target='_blank' rel='noreferrer noopener'><span class='sr-only'>Midudev</span>Midudev</a>.",
-    "link": "https://jeffergonzalez.github.io/reading-list/",
-    "image": "Reading List App.webp",
-    "github": "https://github.com/JefferGonzalez/reading-list",
-    "tags": ["React", "Bootstrap", "Drag & Drop", "LocalStorage", "Driver.js"]
+    "title": "QuickLink | URL Shortener",
+    "subtitle": "Open Source URL Shortener",
+    "description": "QuickLink is an open-source URL shortening application developed with the PERN stack (PostgreSQL, Express, React and Node.js). It allows you to generate short links and QR codes with JWT authentication and cookie management. Its interface is modern and responsive thanks to Tailwind CSS.",
+    "link": "https://quicklink.jeffer.dev/",
+    "github": [
+      "https://github.com/JefferGonzalez/quicklink",
+      "https://github.com/JefferGonzalez/quicklink-api"
+    ],
+    "image": "quicklink.webp",
+    "tags": [
+      "React.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Prisma",
+      "JWT Authentication",
+      "Cookies"
+    ]
   },
   {
     "title": "XUE",
@@ -22,5 +28,21 @@
     "link": "https://drive.google.com/file/d/18AYDGbfU18rV5sJeYdtfs-HJyqNtBg2i/view?usp=sharing",
     "image": "XUE.webp",
     "tags": ["HTML", "Bootstrap", "jQuery", "PHP", "MySQL"]
+  },
+  {
+    "title": "Reading List App",
+    "description": "Based on the technical tests challenge <a class='text-blue-500' href='https://pruebastecnicas.com/' target='_blank' rel='noreferrer noopener'><span class='sr-only'>Midudev</span>Midudev</a>.",
+    "link": "https://jeffergonzalez.github.io/reading-list/",
+    "image": "Reading List App.webp",
+    "github": ["https://github.com/JefferGonzalez/reading-list"],
+    "tags": ["React.js", "Bootstrap", "Drag & Drop", "LocalStorage", "Driver.js"]
+  },
+  {
+    "title": "Escape The QA Maze",
+    "description": "Game to learn quality control concepts. Made for a university project.",
+    "link": "https://jeffergonzalez.github.io/escape-the-qa-maze/",
+    "image": "Escape The QA Maze.webp",
+    "github": ["https://github.com/JefferGonzalez/escape-the-qa-maze"],
+    "tags": ["React.js", "CSS", "JavaScript", "HTML"]
   }
 ]

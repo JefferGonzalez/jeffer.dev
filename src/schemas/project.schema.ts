@@ -4,9 +4,9 @@ export const project = z.object({
   title: z.string(),
   subtitle: z.string().optional(),
   description: z.string(),
-  image: z.string(),
-  link: z.string(),
-  github: z.string().optional(),
+  image: z.string().optional(),
+  link: z.string().optional(),
+  github: z.array(z.string()).optional(),
   tags: z.array(z.string())
 })
 

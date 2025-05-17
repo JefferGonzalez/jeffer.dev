@@ -15,64 +15,71 @@ const { project } = Astro.props
 const { title, subtitle, description, image, link, github, tags } = project
 ---
 
-<article class="flex flex-col gap-4 p-8 h-full rounded-xl bg-neutral-900">
-  <header class="flex items-center gap-2 justify-between w-full">
+<article
+  class="flex flex-col gap-4 p-6 h-full rounded-xl bg-neutral-900 shadow-lg transition-shadow hover:shadow-xl"
+>
+  <header class="flex items-start justify-between w-full">
     <div>
-      <h3 class="text-2xl font-semibold">
-        {title}
-      </h3>
-      {subtitle && <span class="text-md text-neutral-500">{subtitle}</span>}
+      <h3 class="text-2xl font-semibold text-white">{title}</h3>
+      {subtitle && <p class="text-sm text-neutral-400">{subtitle}</p>}
     </div>
 
-    <div class="flex items-center gap-2">
+    <nav class="flex gap-2">
       {
-        github && (
+        github &&
+          github.map((repo) => (
+            <a
+              href={repo}
+              title={t('goToRepository')}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t('goToRepository')}
+              class="p-2 rounded-full transition hover:scale-105"
+            >
+              <GitHubIcon />
+            </a>
+          ))
+      }
+
+      {
+        link && (
           <a
-            href={github}
-            title={t('goToRepository')}
+            href={link}
+            title={t('seeProject')}
             target="_blank"
-            rel="noreferrer noopener"
-            class="p-2 rounded-full bg-blue-500 hover:bg-blue-700 transition-colors duration-200 ease-in-out"
+            rel="noopener noreferrer"
+            aria-label={t('seeProject')}
+            class="p-2 rounded-full bg-blue-500 hover:bg-blue-700 transition hover:scale-105"
           >
-            <span class="sr-only">{t('goToRepository')}</span>
-            <GitHubIcon className="hover:scale-110 transition-colors duration-200" />
+            <ExternalLinkIcon />
           </a>
         )
       }
-
-      <a
-        href={link}
-        title={t('seeProject')}
-        target="_blank"
-        rel="noreferrer noopener"
-        class="p-2 rounded-full bg-blue-500 hover:bg-blue-700 transition-colors duration-200 ease-in-out"
-      >
-        <span class="sr-only">{t('seeProject')}</span>
-        <ExternalLinkIcon
-          className="hover:scale-110 transition-colors duration-200"
-        />
-      </a>
-    </div>
+    </nav>
   </header>
 
-  <section>
-    <p class="text-pretty my-5" set:html={description} />
-    <picture>
-      <img
-        alt={title}
-        title={title}
-        src={`/projects/${image}`}
-        class="rounded-lg w-full object-cover object-center"
-        loading="lazy"
-      />
-    </picture>
+  <section class="flex flex-col gap-4">
+    <p class="text-neutral-300 leading-relaxed" set:html={description} />
+    {
+      image && (
+        <picture>
+          <img
+            src={`/projects/${image}`}
+            alt={title}
+            title={title}
+            class="rounded-lg w-full object-cover object-center"
+            loading="lazy"
+          />
+        </picture>
+      )
+    }
   </section>
 
   <footer>
-    <ul class="flex items-center gap-1 flex-wrap">
+    <ul class="flex flex-wrap gap-2 mt-2">
       {
         tags.map((tag) => (
-          <li class="flex gap-x-2 rounded-lg text-sm bg-black/10 py-1 px-2 border ">
+          <li class="bg-neutral-800 text-neutral-200 text-xs px-3 py-1 rounded-md border border-neutral-700">
             {tag}
           </li>
         ))
