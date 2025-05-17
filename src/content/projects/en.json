@@ -10,14 +10,14 @@
     ],
     "image": "quicklink.webp",
     "tags": [
-      "React.js",
+      "React",
       "TypeScript",
       "Tailwind CSS",
       "Node.js",
       "Express.js",
       "PostgreSQL",
       "Prisma",
-      "JWT Authentication",
+      "JWT",
       "Cookies"
     ]
   },
@@ -27,7 +27,7 @@
     "description": "Initial project that arose when trying to solve the need that arose in my experience as an apprentice in <a class='text-blue-500' href='https://www.segurossura.com.co/paginas/inicio.aspx' target='_blank' rel='noreferrer noopener'><span class='sr-only'>SURA</span>SURA.</a>",
     "link": "https://drive.google.com/file/d/18AYDGbfU18rV5sJeYdtfs-HJyqNtBg2i/view?usp=sharing",
     "image": "XUE.webp",
-    "tags": ["HTML", "Bootstrap", "jQuery", "PHP", "MySQL"]
+    "tags": ["HTML5", "Bootstrap", "jQuery", "PHP", "MySQL"]
   },
   {
     "title": "Reading List App",
@@ -35,7 +35,7 @@
     "link": "https://jeffergonzalez.github.io/reading-list/",
     "image": "Reading List App.webp",
     "github": ["https://github.com/JefferGonzalez/reading-list"],
-    "tags": ["React.js", "Bootstrap", "Drag & Drop", "LocalStorage", "Driver.js"]
+    "tags": ["React", "Bootstrap", "Drag & Drop", "LocalStorage", "Driver.js"]
   },
   {
     "title": "Escape The QA Maze",
@@ -43,6 +43,6 @@
     "link": "https://jeffergonzalez.github.io/escape-the-qa-maze/",
     "image": "Escape The QA Maze.webp",
     "github": ["https://github.com/JefferGonzalez/escape-the-qa-maze"],
-    "tags": ["React.js", "CSS", "JavaScript", "HTML"]
+    "tags": ["React", "CSS", "JavaScript", "HTML5"]
   }
 ]

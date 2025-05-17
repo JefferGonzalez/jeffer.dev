@@ -1,0 +1,25 @@
+---
+interface Props {
+  tag: string
+}
+
+const { tag } = Astro.props
+
+const iconPath = `/icons/${tag.toLowerCase()}.svg`
+---
+
+<div
+  class="flex justify-center items-center gap-x-1 bg-neutral-900 text-white px-2 py-1 rounded-full border border-neutral-800"
+>
+  <img
+    src={iconPath}
+    alt={`${tag} icon`}
+    class="size-6"
+    loading="lazy"
+    onerror="this.style.display='none'"
+  />
+  <span class="sr-only">{tag}</span>
+  <span class="hidden md:block text-xs 2xl:text-base text-gray-300">
+    {tag}
+  </span>
+</div>
