@@ -88,34 +88,40 @@ const { title, description, image } = Astro.props
 
     <LanguagePicker />
 
-    <footer
-      class="flex justify-center items-center bg-neutral-900 text-white text-base py-4 gap-x-1"
-    >
-      <p>
-        {t('footer')}
-        <a
-          href="https://github.com/JefferGonzalez"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="GitHub"
-        >
-          <span class="sr-only">JefferGonzalez</span>
-          JefferGonzalez
-        </a>
-      </p>
+    <footer class="flex flex-col bg-neutral-900 py-4 gap-y-2">
+      <section class="text-xs text-center text-gray-400">
+        {t('disclaimer')}
+      </section>
 
-      <p>
-        | {t('inspiration')}
-        <span class="sr-only">| {t('inspiration')}</span>
-      </p>
+      <section
+        class="flex justify-center items-center text-white text-base gap-x-2"
+      >
+        <p>
+          {t('footer')}
+          <a
+            href="https://github.com/JefferGonzalez"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="GitHub"
+          >
+            <span class="sr-only">JefferGonzalez</span>
+            JefferGonzalez
+          </a>
+        </p>
 
-      <img
-        loading="lazy"
-        class="rounded-full shadow-lg size-8 cursor-pointer"
-        src="/midudev.webp"
-        title="midudev"
-        alt="Miguel Ángel Durán"
-      />
+        <p>
+          | {t('inspiration')}
+          <span class="sr-only">| {t('inspiration')}</span>
+        </p>
+
+        <img
+          loading="lazy"
+          class="rounded-full shadow-lg size-8 cursor-pointer"
+          src="/midudev.webp"
+          title="midudev"
+          alt="Miguel Ángel Durán"
+        />
+      </section>
     </footer>
 
     <script>

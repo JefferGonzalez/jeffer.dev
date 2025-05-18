@@ -40,7 +40,9 @@ export const common = {
     copy: 'Copiar',
     copySuccess: 'Copiado al portapapeles',
     footer: 'Hecho con ❤️ por',
-    inspiration: 'Inspirado en'
+    inspiration: 'Inspirado en',
+    disclaimer:
+      'Aviso: Los logos mostrados son propiedad de sus respectivas compañías y se usan solo con fines ilustrativos. No implica afiliación.'
   },
   en: {
     description:
@@ -68,6 +70,8 @@ export const common = {
     copy: 'Copy',
     copySuccess: 'Copied to clipboard',
     footer: 'Made with ❤️ by',
-    inspiration: 'Inspired by'
+    inspiration: 'Inspired by',
+    disclaimer:
+      'Disclaimer: The logos displayed are property of their respective companies and used for illustrative purposes only. No affiliation implied.'
   }
 } as const
