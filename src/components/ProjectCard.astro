@@ -63,12 +63,13 @@ const { title, subtitle, description, image, link, github, tags } = project
     <p class="text-neutral-300 leading-relaxed" set:html={description} />
     {
       image && (
-        <picture>
+        <picture class="size-full">
           <img
             src={`/projects/${image}`}
+            style="aspect-ratio: 16 / 9; width: 100%; height: 100%;"
             alt={title}
             title={title}
-            class="rounded-lg w-full object-cover object-center"
+            class="rounded-lg h-full object-cover"
             loading="lazy"
           />
         </picture>
