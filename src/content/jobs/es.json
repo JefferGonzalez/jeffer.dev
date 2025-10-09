@@ -5,9 +5,9 @@
     "title": "Consultor SCP",
     "company": "MQA Business Consultant S.A.",
     "description": [
-      "Desarrollo de soluciones empresariales con Java para aplicaciones internas y proyectos a clientes, mejorando la eficiencia operativa y optimizando procesos clave en la empresa.",
-      "Participación en integraciones con sistemas ERP utilizando JavaScript, SAPUI5 y XSJS sobre SAP HANA, desarrollando tanto el frontend como los servicios, lo que permitió una integración más fluida entre sistemas.",
-      "Fortalecí habilidades en desarrollo web y arquitectura de servicios al implementar funcionalidades críticas en entornos empresariales, contribuyendo al crecimiento y mejora continua de los proyectos internos."
+      "Desarrollo de soluciones empresariales con Java y Spring Boot para aplicaciones internas y proyectos a clientes, mejorando la eficiencia operativa y optimizando procesos clave en la empresa.",
+      "Integración de sistemas ERP mediante JavaScript, SAPUI5 y XSJS sobre SAP HANA, desarrollando tanto el frontend como los servicios backend para lograr una interoperatividad fluida entre plataformas.",
+      "Fortalecimiento de competencias en arquitectura de software y desarrollo web full stack, participando en la implementación de funcionalidades críticas y en la mejora continua de los proyectos internos."
     ],
     "latest": true
   },
@@ -17,7 +17,7 @@
     "title": "Analista de Sistemas (Aprendiz)",
     "company": "Seguros de Vida Suramericana S.A.",
     "description": [
-      "Desarrollé una aplicación web en Java para gestionar y centralizar la información del área de Talento Humano, optimizando el control y acceso a los datos de proveedores, mejorando la eficiencia operativa y reduciendo el tiempo de gestión de datos."
+      "Desarrollé una aplicación web en Java y Spring Boot para la gestión del área de Talento Humano, centralizando la información de proveedores y optimizando el control, acceso y trazabilidad de los datos, lo que redujo significativamente los tiempos de gestión y mejoró la eficiencia operativa."
     ]
   }
 ]

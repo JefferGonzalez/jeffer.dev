@@ -5,9 +5,9 @@
     "title": "Consultor SCP",
     "company": "MQA Business Consultant S.A.",
     "description": [
-      "Developed enterprise solutions with Java for internal applications and client projects, improving operational efficiency and optimizing key company processes.",
-      "Participated in integrations with ERP systems using JavaScript, SAPUI5, and XSJS on SAP HANA, developing both the frontend and services, which enabled smoother integration between systems.",
-      "Strengthened skills in web development and service architecture by implementing critical functionalities in enterprise environments, contributing to the growth and continuous improvement of internal projects."
+      "Development of enterprise solutions with Java and Spring Boot for internal applications and client projects, improving operational efficiency and optimizing key company processes.",
+      "ERP system integration using JavaScript, SAPUI5, and XSJS on SAP HANA, developing both the frontend and backend services to achieve seamless interoperability between platforms.",
+      "Strengthening skills in software architecture and full-stack web development, participating in the implementation of critical functionalities and the continuous improvement of internal projects."
     ],
     "latest": true
   },
@@ -17,7 +17,7 @@
     "title": "Systems Assistant (Trainee)",
     "company": "Seguros de Vida Suramericana S.A.",
     "description": [
-      "I developed a Java web application to manage and centralize information from the Human Talent area, optimizing control and access to supplier data, improving operational efficiency, and reducing data management time."
+      "I developed a web application in Java and Spring Boot for managing the Human Talent area, centralizing supplier information and optimizing data control, access, and traceability, which significantly reduced management times and improved operational efficiency."
     ]
   }
 ]
