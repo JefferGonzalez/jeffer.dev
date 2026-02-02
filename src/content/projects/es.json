@@ -2,7 +2,7 @@
   {
     "title": "QuickLink | URL Shortener",
     "subtitle": "Acortador de URL Open Source",
-    "description": "QuickLink es una aplicación open source para acortar URLs, desarrollada con TypeScript y el stack PERN (PostgreSQL, Express, React y Node.js). Permite generar enlaces cortos y códigos QR, con autenticación mediante JWT y manejo de cookies. Su interfaz es moderna y responsiva gracias a Tailwind CSS.",
+    "description": "QuickLink es un acortador de URL de código abierto desarrollado con el stack PERN (PostgreSQL, Express, React y Node.js). Permite a los usuarios crear enlaces cortos, administrarlos desde su cuenta y generar códigos QR, además de admitir enlaces anónimos con vencimiento. La autenticación se basa en la sesión mediante cookies seguras, y la interfaz es moderna y responsiva, desarrollada con React y diseñada con Tailwind CSS.",
     "link": "https://quicklink.jeffer.dev/",
     "github": [
       "https://github.com/JefferGonzalez/quicklink",
@@ -17,7 +17,7 @@
       "Express.js",
       "PostgreSQL",
       "Prisma",
-      "JWT",
+      "Better Auth",
       "Cookies"
     ]
   },
