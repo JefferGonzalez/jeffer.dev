@@ -10,18 +10,16 @@ const t = useTranslations(lang)
 const data = await getJobsData(lang)
 ---
 
-<section id="experience">
-  <h2
-    class="text-3xl font-semibold flex gap-x-3 justify-center items-center my-4"
-  >
+<section id="experience" class="m-4">
+  <h2 class="text-3xl font-semibold flex gap-x-3 justify-center items-center mb-4">
     <BriefcaseIcon />
     {t('experience')}
   </h2>
 
-  <section class="relative border-s border-gray-200 ml-3">
+  <section class="relative border-s border-gray-200">
     {
       data.map((job) => (
-        <article class="mb-10 ms-4">
+        <article class="m-4">
           <ExperienceItem job={job} />
         </article>
       ))

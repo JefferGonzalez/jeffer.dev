@@ -1,7 +1,11 @@
 import CopyIcon from '@/components/icons/Copy'
 import type { common } from '@/i18n/ui'
 import { useTranslations } from '@/i18n/utils'
-import React, { useState, type PropsWithChildren } from 'react'
+import {
+  useState,
+  type PropsWithChildren,
+  type SubmitEventHandler
+} from 'react'
 import { toast } from 'sonner'
 
 const MAIL = 'jeffersongonzalezcely@hotmail.com'
@@ -29,7 +33,7 @@ export default function Contact({ children, lang = 'es' }: ContactProps) {
     `
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit: SubmitEventHandler<HTMLFormElement> = async (e) => {
     setLoading(true)
 
     e.preventDefault()
@@ -70,13 +74,14 @@ export default function Contact({ children, lang = 'es' }: ContactProps) {
   }
 
   return (
-    <section id="contact">
-      <h2 className="text-3xl font-semibold flex gap-x-3 justify-center items-center my-4">
+    <section id="contact" className="m-4">
+      <h2 className="text-3xl font-semibold flex gap-x-3 justify-center items-center mb-4">
         {children}
         {t('contactMe')}
       </h2>
-      <form className="p-5" onSubmit={handleSubmit} method="POST">
-        <div className="flex flex-col gap-4 mb-4">
+
+      <form onSubmit={handleSubmit} method="POST">
+        <div className="flex flex-col gap-2 mb-2">
           <label className="text-neutral-100 font-semibold" htmlFor="name">
             {t('name')}
           </label>
@@ -90,7 +95,7 @@ export default function Contact({ children, lang = 'es' }: ContactProps) {
             required
           />
         </div>
-        <div className="flex flex-col gap-4 mb-4">
+        <div className="flex flex-col gap-2 mb-2">
           <label className="text-neutral-100 font-semibold" htmlFor="email">
             {t('email')}
           </label>
@@ -104,7 +109,7 @@ export default function Contact({ children, lang = 'es' }: ContactProps) {
             required
           />
         </div>
-        <div className="flex flex-col gap-4 mb-4">
+        <div className="flex flex-col gap-2 mb-4">
           <label className="text-neutral-100 font-semibold" htmlFor="message">
             {t('message')}
           </label>
@@ -116,7 +121,7 @@ export default function Contact({ children, lang = 'es' }: ContactProps) {
             required
           ></textarea>
         </div>
-        <div className="flex flex-col gap-4 md:flex-row md:justify-between">
+        <div className="flex flex-col gap-2 md:flex-row md:justify-between">
           <div>
             <button
               id="btn-send"
